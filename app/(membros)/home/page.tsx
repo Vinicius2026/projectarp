@@ -36,30 +36,36 @@ export default async function HomePage() {
         <div className="mb-1 flex justify-center">
           <span className="text-xs sm:text-sm font-semibold tracking-wide text-gray-900 animate-soft-blink">ARD APP</span>
         </div>
-        <div className="flex items-center justify-between gap-3 flex-wrap mb-3">
+        <div className="flex items-center gap-3 flex-wrap mb-3">
           {/* Perfil */}
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-full flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-base sm:text-lg">A</span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-sm sm:text-base">A</span>
             </div>
             <div className="min-w-0">
-              <h1 className="text-base sm:text-lg font-bold text-gray-900 truncate">
+              <h1 className="text-sm sm:text-base font-semibold text-gray-900 truncate">
                 Olá, {profile?.full_name || 'Usuário'}
               </h1>
-              <p className="text-xs sm:text-sm text-blue-600">{profile?.plan_type || 'Plano Premium'}</p>
+              <p className="text-[11px] sm:text-xs text-blue-600">{profile?.plan_type || 'Plano Premium'}</p>
             </div>
           </div>
-          {/* Ações */}
-          <div className="flex items-center gap-2 sm:gap-3 ml-auto">
-            <EnablePush />
+
+          {/* Espaço para empurrar ações para a direita */}
+          <div className="flex-1" />
+
+          {/* Botão Ativar Notificações (antes dos ícones) */}
+          <EnablePush />
+
+          {/* Ícones */}
+          <div className="flex items-center gap-2 sm:gap-3">
             <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
-              <Bell className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
-              <Moon className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Moon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
-              <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
