@@ -102,9 +102,9 @@ export default async function HomePage() {
                       <Link
                         key={module.id}
                         href={`/modulo/${module.id}`}
-                        className="flex-shrink-0 w-64 snap-start"
+                        className="flex-shrink-0 w-48 md:w-56 lg:w-64 snap-start"
                       >
-                        <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl aspect-square p-6 relative overflow-hidden">
+                        <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl aspect-[9/16] p-4 md:p-6 relative overflow-hidden">
                           {module.thumbnail_url ? (
                             // eslint-disable-next-line @next/next/no-img-element
                             <img 

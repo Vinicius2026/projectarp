@@ -150,7 +150,7 @@ export default async function ModulosPage() {
               modules.map((module) => (
                 <div key={module.id} className="border rounded-lg overflow-hidden hover:shadow-lg transition">
                   {/* Thumbnail */}
-                  <div className="aspect-video bg-gradient-to-br from-pink-400 to-purple-500 relative overflow-hidden">
+                  <div className="aspect-[9/16] bg-gradient-to-br from-pink-400 to-purple-500 relative overflow-hidden">
                     {module.thumbnail_url ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img 
