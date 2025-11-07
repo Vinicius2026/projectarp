@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { Bell, Moon, Share2, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import EnablePush from '../components/EnablePush'
+import UserMenu from '../components/UserMenu'
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -37,18 +38,8 @@ export default async function HomePage() {
           <span className="text-xs sm:text-sm font-semibold tracking-wide text-gray-900 animate-soft-blink">ARD APP</span>
         </div>
         <div className="flex items-center gap-3 flex-wrap mb-3">
-          {/* Perfil */}
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-sm sm:text-base">A</span>
-            </div>
-            <div className="min-w-0">
-              <h1 className="text-sm sm:text-base font-semibold text-gray-900 truncate">
-                Olá, {profile?.full_name || 'Usuário'}
-              </h1>
-              <p className="text-[11px] sm:text-xs text-blue-600">{profile?.plan_type || 'Plano Premium'}</p>
-            </div>
-          </div>
+          {/* Perfil com menu */}
+          <UserMenu name={profile?.full_name || 'Usuário'} planType={profile?.plan_type || 'Plano Premium'} />
 
           {/* Espaço para empurrar ações para a direita */}
           <div className="flex-1" />
