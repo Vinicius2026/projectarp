@@ -25,31 +25,39 @@ export default function UserMenu({ name, planType }: Props) {
   return (
     <div
       ref={ref}
-      className="relative flex items-center gap-3 min-w-0 cursor-pointer select-none"
+      className="relative flex items-center gap-3 min-w-0 select-none"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
-      onClick={() => setOpen((v) => !v)}
     >
-      <div className="w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center shrink-0">
-        <span className="text-white font-bold text-sm sm:text-base">{initial}</span>
-      </div>
-      <div className="min-w-0">
-        <h1 className="text-sm sm:text-base font-semibold text-gray-900 truncate">
-          Olá, {name || 'Usuário'}
-        </h1>
-        {!!planType && (
-          <p className="text-[11px] sm:text-xs text-blue-600 truncate">{planType}</p>
-        )}
-      </div>
+      <button
+        type="button"
+        className="flex items-center gap-3 min-w-0 cursor-pointer"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center shrink-0">
+          <span className="text-white font-bold text-sm sm:text-base">{initial}</span>
+        </div>
+        <div className="min-w-0 text-left">
+          <h1 className="text-sm sm:text-base font-semibold text-gray-900 truncate">
+            Olá, {name || 'Usuário'}
+          </h1>
+          {!!planType && (
+            <p className="text-[11px] sm:text-xs text-blue-600 truncate">{planType}</p>
+          )}
+        </div>
+      </button>
 
       {open && (
-        <div className="absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg w-52 z-50">
+        <div
+          className="absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg w-52 z-50"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="px-3 py-2 border-b">
             <p className="text-sm font-medium text-gray-900 truncate">{name}</p>
             {planType && <p className="text-xs text-gray-500 truncate">{planType}</p>}
           </div>
           <div className="p-2">
-            <form action={logout}>
+            <form action={logout} onClick={(e) => e.stopPropagation()}>
               <button
                 type="submit"
                 className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 text-sm text-red-600"
