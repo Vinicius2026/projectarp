@@ -43,7 +43,7 @@ export default function LoginPage() {
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-3xl">P</span>
+              <span className="text-white font-bold text-3xl">A</span>
             </div>
           </div>
 
