@@ -111,6 +111,7 @@ export default async function HomePage() {
                               src={module.thumbnail_url} 
                               alt={module.title}
                               className="w-full h-full object-cover absolute inset-0"
+                              draggable={false}
                             />
                           ) : (
                             <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">

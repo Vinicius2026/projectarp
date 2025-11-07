@@ -150,13 +150,14 @@ export default async function ModulosPage() {
               modules.map((module) => (
                 <div key={module.id} className="border rounded-lg overflow-hidden hover:shadow-lg transition">
                   {/* Thumbnail */}
-                  <div className="aspect-video bg-gradient-to-br from-pink-400 to-purple-500 relative">
+                  <div className="aspect-video bg-gradient-to-br from-pink-400 to-purple-500 relative overflow-hidden">
                     {module.thumbnail_url ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img 
                         src={module.thumbnail_url} 
                         alt={module.title}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
+                        draggable={false}
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
