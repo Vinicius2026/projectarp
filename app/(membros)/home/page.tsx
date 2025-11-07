@@ -33,31 +33,33 @@ export default async function HomePage() {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 p-4">
         {/* Brand centralizado com efeito de piscar suave */}
-        <div className="mb-2 flex justify-center">
-          <span className="text-sm font-semibold tracking-wide text-gray-900 animate-soft-blink">ARD APP</span>
+        <div className="mb-1 flex justify-center">
+          <span className="text-xs sm:text-sm font-semibold tracking-wide text-gray-900 animate-soft-blink">ARD APP</span>
         </div>
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
+        <div className="flex items-center justify-between gap-3 flex-wrap mb-3">
+          {/* Perfil */}
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-full flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-base sm:text-lg">A</span>
             </div>
-            <div>
-              <h1 className="text-lg font-bold text-gray-900">
+            <div className="min-w-0">
+              <h1 className="text-base sm:text-lg font-bold text-gray-900 truncate">
                 Olá, {profile?.full_name || 'Usuário'}
               </h1>
-              <p className="text-sm text-blue-600">{profile?.plan_type || 'Plano Premium'}</p>
+              <p className="text-xs sm:text-sm text-blue-600">{profile?.plan_type || 'Plano Premium'}</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          {/* Ações */}
+          <div className="flex items-center gap-2 sm:gap-3 ml-auto">
             <EnablePush />
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Bell className="w-6 h-6 text-gray-600" />
+            <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
+              <Bell className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Moon className="w-6 h-6 text-gray-600" />
+            <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
+              <Moon className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Share2 className="w-6 h-6 text-gray-600" />
+            <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
+              <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>
