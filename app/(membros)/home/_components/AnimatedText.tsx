@@ -7,7 +7,7 @@ export default function AnimatedText() {
   const scrollingText = `${text} • ${text} • ${text} • `
   
   return (
-    <div className="overflow-hidden py-3 my-6 mx-4 rounded-lg" style={{ backgroundColor: '#ff4500' }}>
+    <div className="overflow-hidden py-3 mt-2 mb-4 mx-4 rounded-lg" style={{ backgroundColor: '#ff4500' }}>
       <div style={{ width: '100%', overflow: 'hidden' }}>
         <div className="animate-scroll-left">
           <span className="text-white font-bold text-sm sm:text-base px-8 inline-block">

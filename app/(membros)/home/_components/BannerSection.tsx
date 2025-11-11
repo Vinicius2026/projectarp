@@ -9,6 +9,13 @@ const brandImages = [
 export default function BannerSection() {
   return (
     <div className="mb-8">
+      {/* Texto acima do banner */}
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <span className="text-xs text-gray-600">&gt; Aulas</span>
+        <span className="text-xs text-gray-600">&gt; Produto</span>
+        <span className="text-xs text-gray-600">&gt; Aplique</span>
+      </div>
+
       {/* Banner principal */}
       <div className="mb-3">
         <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
