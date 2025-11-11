@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import EnablePush from '../components/EnablePush'
 import ModulesCarousel from './_components/ModulesCarousel'
+import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
 
@@ -51,6 +52,9 @@ export default async function HomePage() {
       {/* Header estilo Instagram */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="flex items-center justify-between px-4 py-3">
+          {/* Menu hambúrguer */}
+          <SideMenu />
+          
           {/* Nome do usuário no topo com símbolo verificado */}
           <div className="flex items-center gap-2 flex-1 justify-center">
             <h1 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h1>
@@ -81,9 +85,21 @@ export default async function HomePage() {
         {/* Foto de perfil e estatísticas lado a lado */}
         <div className="flex items-center gap-6 sm:gap-8 mb-4">
           {/* Foto de perfil circular à esquerda */}
-          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0">
-            <span className="text-white font-bold text-2xl sm:text-3xl">{initial}</span>
-          </div>
+          {profile?.avatar_url ? (
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden bg-black shrink-0">
+              <Image
+                src={profile.avatar_url}
+                alt={userName}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-2xl sm:text-3xl">{initial}</span>
+            </div>
+          )}
 
           {/* Estatísticas à direita da imagem */}
           <div className="flex items-center gap-6 sm:gap-8 flex-1">

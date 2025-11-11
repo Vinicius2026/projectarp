@@ -4,6 +4,7 @@ export type Profile = {
   plan_type: string
   role?: string | null
   bio?: string | null
+  avatar_url?: string | null
   total_revenue?: number | null
   total_units_sold?: number | null
 }
