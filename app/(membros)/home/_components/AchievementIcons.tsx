@@ -104,15 +104,15 @@ export default function AchievementIcons() {
 
             {/* Conteúdo do Modal - Grid de Prêmios */}
             <div className="p-6">
-              <div className="grid grid-cols-2 gap-3 justify-items-center">
+              <div className="grid grid-cols-3 gap-4 justify-items-center">
                 {prizes.map((prize, index) => (
                   <div key={index} className="flex items-center justify-center">
                     <Image
                       src={prize.image}
                       alt={prize.alt}
-                      width={50}
-                      height={50}
-                      className="w-[50px] h-[50px]"
+                      width={80}
+                      height={80}
+                      className="w-[80px] h-[80px]"
                       unoptimized
                     />
                   </div>
