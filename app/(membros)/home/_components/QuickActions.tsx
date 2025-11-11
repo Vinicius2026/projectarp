@@ -25,13 +25,13 @@ export default function QuickActions() {
           >
             <div className="flex flex-col items-center gap-2">
               {/* Quadrado com imagem - estilo iPhone */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
+              <div className="w-[59px] h-[59px] sm:w-[67px] sm:h-[67px] bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={action.image}
                   alt={action.title}
-                  width={56}
-                  height={56}
+                  width={59}
+                  height={59}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-contain p-1.5"
