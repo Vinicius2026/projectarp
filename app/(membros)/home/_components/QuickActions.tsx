@@ -1,8 +1,5 @@
 'use client'
 
-import { useRef } from 'react'
-import Image from 'next/image'
-
 interface QuickAction {
   id: number
   image: string
@@ -18,12 +15,9 @@ const quickActions: QuickAction[] = [
 ]
 
 export default function QuickActions() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-
   return (
     <div className="mb-6">
       <div 
-        ref={scrollContainerRef}
         className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
       >
         {quickActions.map((action) => (
@@ -34,11 +28,10 @@ export default function QuickActions() {
             <div className="flex flex-col items-center gap-2">
               {/* Quadrado com imagem - estilo iPhone */}
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={action.image}
                   alt={action.title}
-                  width={56}
-                  height={56}
                   className="w-full h-full object-contain p-1.5"
                 />
               </div>

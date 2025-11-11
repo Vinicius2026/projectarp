@@ -1,37 +1,16 @@
 'use client'
 
-import { useRef } from 'react'
-import Image from 'next/image'
-
 export default function BannerSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (!scrollContainerRef.current) return
-
-    const container = scrollContainerRef.current
-    const scrollAmount = 200
-    const scrollTo = direction === 'left' 
-      ? container.scrollLeft - scrollAmount 
-      : container.scrollLeft + scrollAmount
-
-    container.scrollTo({
-      left: scrollTo,
-      behavior: 'smooth'
-    })
-  }
-
   return (
     <div className="mb-8">
       {/* Banner principal */}
       <div className="mb-4">
         <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/Banner Kingdom.png"
             alt="Banner Kingdom"
-            fill
-            className="object-cover rounded-2xl"
-            priority
+            className="w-full h-full object-cover rounded-2xl"
           />
         </div>
       </div>
@@ -46,7 +25,6 @@ export default function BannerSection() {
       {/* Caixas numeradas */}
       <div className="relative">
         <div 
-          ref={scrollContainerRef}
           className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
         >
           {Array.from({ length: 9 }, (_, i) => i + 1).map((number) => (
