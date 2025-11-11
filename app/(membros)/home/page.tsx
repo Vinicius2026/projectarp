@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import EnablePush from '../components/EnablePush'
 import ModulesCarousel from './_components/ModulesCarousel'
 import Image from 'next/image'
+import { logout } from '@/app/actions/auth'
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -28,30 +29,50 @@ export default async function HomePage() {
     .select('*')
     .order('id', { ascending: true })
 
-  // Dados mockados (podem ser substituídos por dados reais do banco depois)
-  const totalRevenue = profile?.total_revenue ?? 1402294.39
-  const totalUnitsSold = profile?.total_units_sold ?? 54908
+  // Dados mockados (valores fixos como solicitado)
+  const totalRevenue = 1402294.39
+  const totalUnitsSold = 54908
   const userBio = profile?.bio ?? '❤️‍🔥 Jesus @pedrobertotto'
-  const userRole = profile?.role === 'admin' ? 'Administrador' : 'Usuário'
   const userName = profile?.full_name || 'Usuário'
   const initial = (userName?.[0] || 'U').toUpperCase()
+
+  // Determinar tipo de usuário para exibição
+  const getUserType = () => {
+    if (profile?.role === 'admin') return 'Administrador'
+    if (profile?.role === 'gerente') return 'Gerente'
+    if (profile?.plan_type === 'Premium') return 'Usuário Premium'
+    if (profile?.plan_type === 'Gratuito') return 'Usuário Gratuito'
+    return 'Usuário'
+  }
+  const userType = getUserType()
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header estilo Instagram */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        {/* Nome do usuário no topo com símbolo verificado */}
-        <div className="flex items-center justify-center gap-2 px-4 py-3">
-          <h1 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h1>
-          {profile?.role === 'admin' && (
-            <Image
-              src="/simb-king-blue-01.png"
-              alt="Verificado"
-              width={15}
-              height={15}
-              className="w-[15px] h-[15px]"
-            />
-          )}
+        <div className="flex items-center justify-between px-4 py-3">
+          {/* Nome do usuário no topo com símbolo verificado */}
+          <div className="flex items-center gap-2 flex-1 justify-center">
+            <h1 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h1>
+            {profile?.role === 'admin' && (
+              <Image
+                src="/simb-king-blue-01.png"
+                alt="Verificado"
+                width={15}
+                height={15}
+                className="w-[15px] h-[15px]"
+              />
+            )}
+          </div>
+          {/* Botão de logout */}
+          <form action={logout} className="ml-auto">
+            <button
+              type="submit"
+              className="text-sm text-gray-600 hover:text-gray-900 font-medium px-2 py-1"
+            >
+              Sair
+            </button>
+          </form>
         </div>
       </header>
 
@@ -80,21 +101,10 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* Nome e função */}
+        {/* Nome e tipo de usuário */}
         <div className="mb-2">
-          <div className="flex items-center gap-2 mb-1">
-            <h2 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h2>
-            {profile?.role === 'admin' && (
-              <Image
-                src="/simb-king-blue-01.png"
-                alt="Verificado"
-                width={15}
-                height={15}
-                className="w-[15px] h-[15px]"
-              />
-            )}
-          </div>
-          <p className="text-xs text-gray-600">{userRole}</p>
+          <h2 className="text-sm font-bold font-roboto-bold text-gray-900 mb-1">{userName}</h2>
+          <p className="text-xs text-gray-600">{userType}</p>
         </div>
 
         {/* Bio */}
