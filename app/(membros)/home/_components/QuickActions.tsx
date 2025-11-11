@@ -1,5 +1,3 @@
-'use client'
-
 interface QuickAction {
   id: number
   image: string
@@ -32,6 +30,10 @@ export default function QuickActions() {
                 <img
                   src={action.image}
                   alt={action.title}
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain p-1.5"
                 />
               </div>

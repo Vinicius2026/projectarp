@@ -1,5 +1,3 @@
-'use client'
-
 export default function BannerSection() {
   return (
     <div className="mb-8">
@@ -8,8 +6,12 @@ export default function BannerSection() {
         <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/Banner Kingdom.png"
+            src="/Banner%20Kingdom.png"
             alt="Banner Kingdom"
+            width={800}
+            height={200}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-2xl"
           />
         </div>

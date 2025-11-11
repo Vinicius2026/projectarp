@@ -68,6 +68,7 @@ export default async function HomePage() {
                 width={15}
                 height={15}
                 className="w-[15px] h-[15px]"
+                unoptimized
               />
             )}
           </div>
@@ -94,6 +95,10 @@ export default async function HomePage() {
               <img
                 src={profile.avatar_url}
                 alt={userName}
+                width={96}
+                height={96}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -1,0 +1,7 @@
+# Ignorar arquivos grandes durante o build
+*.md
+*.sql
+keys.txt
+node_modules
+.git
+
