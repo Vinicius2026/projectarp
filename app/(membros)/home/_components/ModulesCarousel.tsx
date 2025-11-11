@@ -58,7 +58,7 @@ export default function ModulesCarousel({ modules }: ModulesCarouselProps) {
                 />
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-                  <h3 className="text-xl font-bold text-center mb-2">
+                  <h3 className="text-xl font-bold font-roboto-bold text-center mb-2">
                     {module.title}
                   </h3>
                   <p className="text-xs text-center opacity-90">

@@ -26,7 +26,7 @@ export default async function ModuloPage({
   if (!module) {
     return (
       <div className="p-4">
-        <h1 className="text-xl font-bold text-gray-900">Módulo não encontrado</h1>
+        <h1 className="text-xl font-bold font-roboto-bold text-gray-900">Módulo não encontrado</h1>
       </div>
     )
   }
@@ -41,7 +41,7 @@ export default async function ModuloPage({
           </Link>
           <div>
             <p className="text-xs text-gray-500">Você está acessando</p>
-            <h1 className="text-lg font-bold text-gray-900">{module.title}</h1>
+            <h1 className="text-lg font-bold font-roboto-bold text-gray-900">{module.title}</h1>
           </div>
         </div>
       </header>
@@ -65,7 +65,7 @@ export default async function ModuloPage({
 
         {/* Descrição do módulo */}
         <div className="bg-gray-900 text-white rounded-xl p-6 mb-6">
-          <h2 className="text-lg font-bold mb-2">Hora de faturar com sua marca viral!</h2>
+          <h2 className="text-lg font-bold font-roboto-bold mb-2">Hora de faturar com sua marca viral!</h2>
           <p className="text-sm text-gray-300 mb-4">
             {module.description}
           </p>
@@ -76,7 +76,7 @@ export default async function ModuloPage({
 
         {/* Lista de aulas */}
         <div className="mb-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">
+          <h2 className="text-xl font-bold font-roboto-bold text-gray-900 mb-4">
             Hora de faturar com sua marca viral!
           </h2>
           <p className="text-sm text-gray-600 mb-4">

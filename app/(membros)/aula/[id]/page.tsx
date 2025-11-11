@@ -33,7 +33,7 @@ export default async function AulaPage({
   if (!lesson) {
     return (
       <div className="p-4">
-        <h1 className="text-xl font-bold text-gray-900">Aula não encontrada</h1>
+        <h1 className="text-xl font-bold font-roboto-bold text-gray-900">Aula não encontrada</h1>
       </div>
     )
   }
@@ -55,7 +55,7 @@ export default async function AulaPage({
           </Link>
           <div className="flex-1 min-w-0">
             <p className="text-xs text-gray-500">Você está acessando</p>
-            <h1 className="text-base font-bold text-gray-900 truncate">
+            <h1 className="text-base font-bold font-roboto-bold text-gray-900 truncate">
               {lesson.modules?.title}
             </h1>
           </div>
@@ -65,7 +65,7 @@ export default async function AulaPage({
       {/* Conteúdo */}
       <div className="p-4">
         {/* Título da Aula */}
-        <h2 className="text-xl font-bold text-gray-900 mb-4">
+        <h2 className="text-xl font-bold font-roboto-bold text-gray-900 mb-4">
           {lesson.title}
         </h2>
 
@@ -84,7 +84,7 @@ export default async function AulaPage({
 
         {/* Bloco de Descrição e Links */}
         <div className="bg-gray-900 text-white rounded-xl p-6 mb-6">
-          <h3 className="text-lg font-bold mb-3">
+          <h3 className="text-lg font-bold font-roboto-bold mb-3">
             Hora de faturar com sua marca viral!
           </h3>
           
@@ -119,7 +119,7 @@ export default async function AulaPage({
         {/* Lista de próximas aulas */}
         {allLessons && allLessons.length > 1 && (
           <div className="mb-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">
+            <h3 className="text-lg font-bold font-roboto-bold text-gray-900 mb-4">
               Hora de faturar com sua marca viral!
             </h3>
             <p className="text-sm text-gray-600 mb-4">

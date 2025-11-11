@@ -68,12 +68,12 @@ export default async function HomePage() {
           <div className="relative z-10">
             <div className="flex items-center gap-4">
               <div className="bg-pink-400 rounded-2xl p-6 shadow-lg">
-                <div className="text-white text-2xl font-bold">FlashSal</div>
+                <div className="text-white text-2xl font-bold font-roboto-bold">FlashSal</div>
                 <div className="text-white text-sm">+MindSet</div>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-1">Sua Rotina</h2>
-                <h2 className="text-2xl font-bold text-gray-900">Lucrativa</h2>
+                <h2 className="text-2xl font-bold font-roboto-bold text-gray-900 mb-1">Sua Rotina</h2>
+                <h2 className="text-2xl font-bold font-roboto-bold text-gray-900">Lucrativa</h2>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default async function HomePage() {
           return (
             <div key={area.id} className="mb-8">
               <div className="mb-4">
-                <h2 className="text-xl font-bold text-gray-900">{area.title}</h2>
+                <h2 className="text-xl font-bold font-roboto-bold text-gray-900">{area.title}</h2>
                 <p className="text-sm text-gray-600">{area.description}</p>
               </div>
 
