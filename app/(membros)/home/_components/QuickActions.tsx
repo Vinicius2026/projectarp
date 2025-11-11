@@ -5,11 +5,11 @@ interface QuickAction {
 }
 
 const quickActions: QuickAction[] = [
-  { id: 1, image: '/whatsapp.png', title: 'Grupo Vip' },
-  { id: 2, image: '/chatgpt.png', title: 'KGD IA' },
-  { id: 3, image: '/tiktok.png', title: 'Vídeos Bust' },
-  { id: 4, image: '/capcut.png', title: 'Edição Bust' },
-  { id: 5, image: '/telegram.png', title: 'Automação' },
+  { id: 1, image: '/1.png', title: 'Grupo Vip' },
+  { id: 2, image: '/5.png', title: 'KGD IA' },
+  { id: 3, image: '/2.png', title: 'Vídeos Bust' },
+  { id: 4, image: '/4.png', title: 'Edição Bust' },
+  { id: 5, image: '/3.png', title: 'Automação' },
 ]
 
 export default function QuickActions() {
@@ -25,20 +25,20 @@ export default function QuickActions() {
           >
             <div className="flex flex-col items-center gap-2">
               {/* Círculo com imagem */}
-              <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full overflow-hidden shadow-md">
+              <div className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] rounded-full overflow-hidden shadow-md">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={action.image}
                   alt={action.title}
-                  width={70}
-                  height={70}
+                  width={60}
+                  height={60}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover scale-110"
                 />
               </div>
               {/* Título abaixo */}
-              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[70px]">
+              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[60px]">
                 {action.title}
               </span>
             </div>
