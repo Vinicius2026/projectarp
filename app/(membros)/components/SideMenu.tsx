@@ -31,6 +31,7 @@ export default function SideMenu() {
   const menuItems = [
     { label: 'Perfil', href: '/perfil' },
     { label: 'Minhas afiliações', href: '#' },
+    { label: 'Notificações', href: null, disabled: true },
     { label: 'Prêmios', href: '#' },
     { label: 'Chat expert', href: '#' },
     { label: 'Suporte Tec', href: '#' },
@@ -49,13 +50,13 @@ export default function SideMenu() {
 
       {/* Overlay */}
       {open && (
-        <div className="fixed inset-0 bg-black/50 z-50" onClick={() => setOpen(false)} />
+        <div className="fixed inset-0 bg-black/50 z-[60]" onClick={() => setOpen(false)} />
       )}
 
       {/* Menu lateral */}
       <div
         ref={menuRef}
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-[60] transform transition-transform duration-300 ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -74,8 +75,20 @@ export default function SideMenu() {
         {/* Itens do menu */}
         <nav className="p-2">
           {menuItems.map((item) => {
-            const isActive = pathname === item.href
+            const isActive = item.href ? pathname === item.href : false
             const isMocked = item.href === '#'
+            const isDisabled = item.href === null || item.disabled
+            
+            if (isDisabled) {
+              return (
+                <div
+                  key={item.label}
+                  className="w-full px-4 py-3 rounded-lg text-gray-400 cursor-not-allowed"
+                >
+                  {item.label}
+                </div>
+              )
+            }
             
             if (isMocked) {
               return (
