@@ -25,18 +25,20 @@ export default function QuickActions() {
           >
             <div className="flex flex-col items-center gap-2">
               {/* Círculo com imagem */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={action.image}
-                alt={action.title}
-                width={70}
-                height={70}
-                loading="lazy"
-                decoding="async"
-                className="w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] rounded-full object-cover shadow-md"
-              />
+              <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full overflow-hidden shadow-md">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={action.image}
+                  alt={action.title}
+                  width={70}
+                  height={70}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover scale-110"
+                />
+              </div>
               {/* Título abaixo */}
-              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[80px]">
+              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[70px]">
                 {action.title}
               </span>
             </div>
