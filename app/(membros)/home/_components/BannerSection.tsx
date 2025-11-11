@@ -10,7 +10,7 @@ export default function BannerSection() {
   return (
     <div className="mb-8">
       {/* Banner principal */}
-      <div className="mb-6">
+      <div className="mb-3">
         <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -26,7 +26,7 @@ export default function BannerSection() {
       </div>
 
       {/* Título */}
-      <div className="mb-4">
+      <div className="mb-3">
         <h2 className="text-xl sm:text-2xl font-bold font-roboto-bold text-gray-900">
           Super Marcas Virais
         </h2>
