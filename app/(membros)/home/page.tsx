@@ -3,6 +3,7 @@ import EnablePush from '../components/EnablePush'
 import ModulesCarousel from './_components/ModulesCarousel'
 import BannerSection from './_components/BannerSection'
 import QuickActions from './_components/QuickActions'
+import AchievementIcons from './_components/AchievementIcons'
 import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
@@ -125,57 +126,8 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* Ícones de conquistas */}
-        <div className="flex items-center gap-2 mb-2">
-          <Image
-            src="/5k.png"
-            alt="5K"
-            width={30}
-            height={30}
-            className="w-[30px] h-[30px]"
-            unoptimized
-          />
-          <Image
-            src="/10k.png"
-            alt="10K"
-            width={30}
-            height={30}
-            className="w-[30px] h-[30px]"
-            unoptimized
-          />
-          <Image
-            src="/33k.png"
-            alt="33K"
-            width={30}
-            height={30}
-            className="w-[30px] h-[30px]"
-            unoptimized
-          />
-          <Image
-            src="/250k.png"
-            alt="250K"
-            width={30}
-            height={30}
-            className="w-[30px] h-[30px]"
-            unoptimized
-          />
-          <Image
-            src="/500k.png"
-            alt="500K"
-            width={30}
-            height={30}
-            className="w-[30px] h-[30px]"
-            unoptimized
-          />
-          <Image
-            src="/1m.png"
-            alt="1M"
-            width={30}
-            height={30}
-            className="w-[30px] h-[30px]"
-            unoptimized
-          />
-        </div>
+        {/* Ícones de conquistas com seta */}
+        <AchievementIcons />
 
         {/* Nome e tipo de usuário */}
         <div className="mb-2">
