@@ -15,6 +15,21 @@
   .animate-soft-blink {
     animation: soft-blink 3s ease-in-out infinite;
   }
+
+  /* Animação de texto correndo da direita para a esquerda */
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll-left {
+    animation: scroll-left 35s linear infinite;
+    display: inline-flex;
+    white-space: nowrap;
+  }
 }
 
 

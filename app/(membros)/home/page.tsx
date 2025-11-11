@@ -4,6 +4,7 @@ import ModulesCarousel from './_components/ModulesCarousel'
 import BannerSection from './_components/BannerSection'
 import QuickActions from './_components/QuickActions'
 import AchievementIcons from './_components/AchievementIcons'
+import AnimatedText from './_components/AnimatedText'
 import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
@@ -151,9 +152,12 @@ export default async function HomePage() {
       </div>
 
       {/* Banner Section */}
-      <div className="px-4 pb-6">
+      <div className="px-4 pb-4 pt-2">
         <BannerSection />
       </div>
+
+      {/* Texto Animado */}
+      <AnimatedText />
 
       {/* Áreas */}
       <div className="px-4 pb-6">

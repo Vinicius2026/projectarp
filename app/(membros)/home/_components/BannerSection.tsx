@@ -10,7 +10,7 @@ export default function BannerSection() {
   return (
     <div className="mb-8">
       {/* Banner principal */}
-      <div className="mb-4">
+      <div className="mb-6">
         <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
