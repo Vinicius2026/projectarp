@@ -18,6 +18,7 @@ export default async function HomePage() {
     .eq('id', user?.id)
     .single()
 
+
   // Buscar áreas
   const { data: areas } = await supabase
     .from('areas')
@@ -87,12 +88,20 @@ export default async function HomePage() {
           {/* Foto de perfil circular à esquerda */}
           {profile?.avatar_url ? (
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden bg-black shrink-0">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={profile.avatar_url}
                 alt={userName}
-                width={96}
-                height={96}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Se a imagem falhar, mostrar o círculo preto com inicial
+                  const target = e.target as HTMLImageElement
+                  const parent = target.parentElement
+                  if (parent) {
+                    parent.innerHTML = `<span class="text-white font-bold text-2xl sm:text-3xl">${initial}</span>`
+                    parent.className = 'w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0'
+                  }
+                }}
               />
             </div>
           ) : (

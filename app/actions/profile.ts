@@ -95,6 +95,9 @@ export async function uploadProfileImage(formData: FormData) {
     .from('profile-avatars')
     .getPublicUrl(filePath)
 
+  console.log('URL pública gerada:', publicUrl)
+  console.log('Caminho do arquivo:', filePath)
+
   // Atualizar perfil com a URL da imagem
   const { error: updateError } = await supabase
     .from('profiles')
@@ -105,8 +108,18 @@ export async function uploadProfileImage(formData: FormData) {
     .eq('id', user.id)
 
   if (updateError) {
+    console.error('Erro ao atualizar perfil:', updateError)
     return { error: updateError.message }
   }
+
+  // Verificar se foi salvo corretamente
+  const { data: updatedProfile } = await supabase
+    .from('profiles')
+    .select('avatar_url')
+    .eq('id', user.id)
+    .single()
+
+  console.log('Perfil atualizado:', updatedProfile)
 
   revalidatePath('/home')
   revalidatePath('/perfil')

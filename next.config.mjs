@@ -7,6 +7,16 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Configurar domínios de imagem do Supabase
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+    ],
+  },
   // Ignorar arquivos do sistema Windows
   webpack: (config, { isServer }) => {
     if (isServer) {
