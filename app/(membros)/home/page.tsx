@@ -4,7 +4,6 @@ import ModulesCarousel from './_components/ModulesCarousel'
 import BannerSection from './_components/BannerSection'
 import QuickActions from './_components/QuickActions'
 import AchievementIcons from './_components/AchievementIcons'
-import ProfileAvatar from './_components/ProfileAvatar'
 import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
@@ -91,11 +90,22 @@ export default async function HomePage() {
         {/* Foto de perfil e estatísticas lado a lado */}
         <div className="flex items-center gap-6 sm:gap-8 mb-4">
           {/* Foto de perfil circular à esquerda */}
-          <ProfileAvatar
-            avatarUrl={profile?.avatar_url || null}
-            userName={userName}
-            initial={initial}
-          />
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden bg-black shrink-0">
+            {profile?.avatar_url ? (
+              <Image
+                src={profile.avatar_url}
+                alt={userName}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover rounded-full"
+                unoptimized
+              />
+            ) : (
+              <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-2xl sm:text-3xl">{initial}</span>
+              </div>
+            )}
+          </div>
 
           {/* Estatísticas à direita da imagem */}
           <div className="flex items-center gap-6 sm:gap-8 flex-1">
