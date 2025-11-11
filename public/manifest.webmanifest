@@ -1,6 +1,6 @@
 {
-  "name": "ARD APP",
-  "short_name": "ARD",
+  "name": "Kingdom App",
+  "short_name": "Kingdom",
   "start_url": "/home",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -21,8 +21,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "ARD APP - Área de Membros",
-  description: "Plataforma de gerenciamento e conteúdo exclusivo",
+  title: "Kingdom App",
+  description: "Sua fase real no digital começa aqui e agora.",
   manifest: "/manifest.webmanifest",
   themeColor: "#111111",
   icons: {
