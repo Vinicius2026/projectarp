@@ -93,15 +93,6 @@ export default async function HomePage() {
                 src={profile.avatar_url}
                 alt={userName}
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  // Se a imagem falhar, mostrar o círculo preto com inicial
-                  const target = e.target as HTMLImageElement
-                  const parent = target.parentElement
-                  if (parent) {
-                    parent.innerHTML = `<span class="text-white font-bold text-2xl sm:text-3xl">${initial}</span>`
-                    parent.className = 'w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0'
-                  }
-                }}
               />
             </div>
           ) : (

@@ -36,7 +36,6 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
 
     if (result.error) {
       setMessage({ type: 'error', text: result.error })
-      setUploading(false)
     } else if (result.success && result.url) {
       // Atualizar o estado local com a nova URL
       setAvatarUrl(result.url)
@@ -45,7 +44,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
       // Forçar refresh da página após um pequeno delay para garantir que o cache seja atualizado
       setTimeout(() => {
         window.location.reload()
-      }, 500)
+      }, 1000)
     }
 
     setUploading(false)
