@@ -45,7 +45,7 @@ export default function ModulesCarousel({ modules }: ModulesCarouselProps) {
           <Link
             key={module.id}
             href={`/modulo/${module.id}`}
-            className="flex-shrink-0 w-36 md:w-40 lg:w-44 snap-start"
+            className="flex-shrink-0 w-40 md:w-44 lg:w-48 snap-start"
           >
             <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl aspect-[9/16] p-3 md:p-4 relative overflow-hidden">
               {module.thumbnail_url ? (
