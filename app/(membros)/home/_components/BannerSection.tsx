@@ -51,15 +51,15 @@ export default function BannerSection() {
                     <img
                       src={brand.image}
                       alt={brand.alt}
-                      width={143}
-                      height={143}
+                      width={170}
+                      height={170}
                       loading="lazy"
                       decoding="async"
-                      className="w-[143px] h-[143px] sm:w-[179px] sm:h-[179px] rounded-xl object-cover border-2 border-gray-200 shadow-sm hover:shadow-md transition"
+                      className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] rounded-xl object-cover border-2 border-gray-200 shadow-sm hover:shadow-md transition"
                     />
                   </>
                 ) : (
-                  <div className="w-[143px] h-[143px] sm:w-[179px] sm:h-[179px] bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition">
+                  <div className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition">
                     <span className="text-gray-900 font-bold text-2xl sm:text-3xl font-roboto-bold">
                       {number}
                     </span>

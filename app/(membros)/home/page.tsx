@@ -126,53 +126,53 @@ export default async function HomePage() {
         </div>
 
         {/* Ícones de conquistas */}
-        <div className="flex items-center gap-1 mb-2">
+        <div className="flex items-center gap-2 mb-2">
           <Image
             src="/5k.png"
             alt="5K"
-            width={10}
-            height={10}
-            className="w-[10px] h-[10px]"
+            width={30}
+            height={30}
+            className="w-[30px] h-[30px]"
             unoptimized
           />
           <Image
             src="/10k.png"
             alt="10K"
-            width={10}
-            height={10}
-            className="w-[10px] h-[10px]"
+            width={30}
+            height={30}
+            className="w-[30px] h-[30px]"
             unoptimized
           />
           <Image
             src="/33k.png"
             alt="33K"
-            width={10}
-            height={10}
-            className="w-[10px] h-[10px]"
+            width={30}
+            height={30}
+            className="w-[30px] h-[30px]"
             unoptimized
           />
           <Image
             src="/250k.png"
             alt="250K"
-            width={10}
-            height={10}
-            className="w-[10px] h-[10px]"
+            width={30}
+            height={30}
+            className="w-[30px] h-[30px]"
             unoptimized
           />
           <Image
             src="/500k.png"
             alt="500K"
-            width={10}
-            height={10}
-            className="w-[10px] h-[10px]"
+            width={30}
+            height={30}
+            className="w-[30px] h-[30px]"
             unoptimized
           />
           <Image
             src="/1m.png"
             alt="1M"
-            width={10}
-            height={10}
-            className="w-[10px] h-[10px]"
+            width={30}
+            height={30}
+            className="w-[30px] h-[30px]"
             unoptimized
           />
         </div>
