@@ -3,7 +3,7 @@
 -- Execute este script no SQL Editor do Supabase
 -- ============================================
 
--- Atualizar o nome do usuário admin para "Pedro Bertotto"
+-- OPÇÃO 1: Atualizar pelo email do admin
 -- Substitua 'EMAIL_DO_ADMIN@exemplo.com' pelo email do admin atual
 DO $$
 DECLARE
@@ -27,6 +27,14 @@ BEGIN
     RAISE NOTICE '❌ Usuário com email % não encontrado.', v_user_email;
   END IF;
 END $$;
+
+-- OPÇÃO 2: Atualizar diretamente todos os admins (mais simples)
+-- Descomente a linha abaixo se quiser atualizar todos os admins de uma vez
+-- UPDATE profiles SET full_name = 'Pedro Bertotto' WHERE role = 'admin';
+
+-- OPÇÃO 3: Atualizar pelo ID do usuário (se você souber o ID)
+-- Substitua 'SEU_USER_ID_AQUI' pelo ID do usuário
+-- UPDATE profiles SET full_name = 'Pedro Bertotto' WHERE id = 'SEU_USER_ID_AQUI';
 
 -- Verificar se foi atualizado
 SELECT 
