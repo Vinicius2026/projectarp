@@ -24,12 +24,19 @@ export default function BannerSection() {
     <div className="mb-8">
       {/* Banner principal */}
       <div className="mb-4">
-        <div className="w-full h-48 sm:h-56 md:h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center relative overflow-hidden">
+        <div className="w-full h-32 sm:h-36 md:h-40 bg-black rounded-2xl flex items-center justify-center relative overflow-hidden">
           {/* Mock LOGO K */}
-          <div className="text-white text-6xl sm:text-7xl md:text-8xl font-bold font-roboto-bold">
+          <div className="text-white text-4xl sm:text-5xl md:text-6xl font-bold font-roboto-bold">
             LOGO K
           </div>
         </div>
+      </div>
+
+      {/* Título */}
+      <div className="mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold font-roboto-bold text-gray-900">
+          Super Marcas Virais
+        </h2>
       </div>
 
       {/* Caixas numeradas */}
@@ -41,9 +48,9 @@ export default function BannerSection() {
           {Array.from({ length: 9 }, (_, i) => i + 1).map((number) => (
             <div
               key={number}
-              className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center snap-start shadow-sm hover:shadow-md transition"
+              className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center snap-start shadow-sm hover:shadow-md transition"
             >
-              <span className="text-gray-900 font-bold text-xl sm:text-2xl font-roboto-bold">
+              <span className="text-gray-900 font-bold text-2xl sm:text-3xl font-roboto-bold">
                 {number}
               </span>
             </div>
