@@ -4,6 +4,7 @@ import ModulesCarousel from './_components/ModulesCarousel'
 import BannerSection from './_components/BannerSection'
 import QuickActions from './_components/QuickActions'
 import AchievementIcons from './_components/AchievementIcons'
+import ProfileAvatar from './_components/ProfileAvatar'
 import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
@@ -90,24 +91,11 @@ export default async function HomePage() {
         {/* Foto de perfil e estatísticas lado a lado */}
         <div className="flex items-center gap-6 sm:gap-8 mb-4">
           {/* Foto de perfil circular à esquerda */}
-          {profile?.avatar_url ? (
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden bg-black shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={profile.avatar_url}
-                alt={userName}
-                width={96}
-                height={96}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ) : (
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-2xl sm:text-3xl">{initial}</span>
-            </div>
-          )}
+          <ProfileAvatar
+            avatarUrl={profile?.avatar_url || null}
+            userName={userName}
+            initial={initial}
+          />
 
           {/* Estatísticas à direita da imagem */}
           <div className="flex items-center gap-6 sm:gap-8 flex-1">
