@@ -24,19 +24,17 @@ export default function QuickActions() {
             className="flex-shrink-0 snap-center"
           >
             <div className="flex flex-col items-center gap-2">
-              {/* Quadrado com imagem - estilo iPhone */}
-              <div className="w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={action.image}
-                  alt={action.title}
-                  width={70}
-                  height={70}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-contain p-1.5"
-                />
-              </div>
+              {/* Círculo com imagem */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={action.image}
+                alt={action.title}
+                width={70}
+                height={70}
+                loading="lazy"
+                decoding="async"
+                className="w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] rounded-full object-cover shadow-md"
+              />
               {/* Título abaixo */}
               <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[80px]">
                 {action.title}
