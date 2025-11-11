@@ -33,17 +33,17 @@ export default function QuickActions() {
           >
             <div className="flex flex-col items-center gap-2">
               {/* Quadrado com imagem - estilo iPhone */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
                 <Image
                   src={action.image}
                   alt={action.title}
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-contain p-2"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-contain p-1.5"
                 />
               </div>
               {/* Título abaixo */}
-              <span className="text-xs sm:text-sm text-gray-700 font-medium text-center max-w-[80px]">
+              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[70px]">
                 {action.title}
               </span>
             </div>
