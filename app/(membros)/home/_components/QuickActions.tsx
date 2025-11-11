@@ -5,11 +5,11 @@ interface QuickAction {
 }
 
 const quickActions: QuickAction[] = [
-  { id: 1, image: '/base.png', title: 'Grupo Vip' },
-  { id: 2, image: '/base.png', title: 'KGD IA' },
-  { id: 3, image: '/base.png', title: 'Vídeos Bust' },
-  { id: 4, image: '/base.png', title: 'Edição Bust' },
-  { id: 5, image: '/base.png', title: 'Automação' },
+  { id: 1, image: '/whatsapp.png', title: 'Grupo Vip' },
+  { id: 2, image: '/chatgpt.png', title: 'KGD IA' },
+  { id: 3, image: '/tiktok.png', title: 'Vídeos Bust' },
+  { id: 4, image: '/capcut.png', title: 'Edição Bust' },
+  { id: 5, image: '/telegram.png', title: 'Automação' },
 ]
 
 export default function QuickActions() {
