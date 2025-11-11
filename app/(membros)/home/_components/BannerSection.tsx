@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 
 export default function BannerSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -24,11 +25,14 @@ export default function BannerSection() {
     <div className="mb-8">
       {/* Banner principal */}
       <div className="mb-4">
-        <div className="w-full h-32 sm:h-36 md:h-40 bg-black rounded-2xl flex items-center justify-center relative overflow-hidden">
-          {/* Mock LOGO K */}
-          <div className="text-white text-4xl sm:text-5xl md:text-6xl font-bold font-roboto-bold">
-            LOGO K
-          </div>
+        <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
+          <Image
+            src="/Banner Kingdom.png"
+            alt="Banner Kingdom"
+            fill
+            className="object-cover rounded-2xl"
+            priority
+          />
         </div>
       </div>
 
