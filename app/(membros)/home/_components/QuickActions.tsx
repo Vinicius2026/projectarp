@@ -14,31 +14,31 @@ const quickActions: QuickAction[] = [
 
 export default function QuickActions() {
   return (
-    <div className="mb-6">
+    <div className="mb-6 flex justify-center">
       <div 
-        className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide justify-center px-4"
       >
         {quickActions.map((action) => (
           <div
             key={action.id}
-            className="flex-shrink-0 snap-start"
+            className="flex-shrink-0 snap-center"
           >
             <div className="flex flex-col items-center gap-2">
               {/* Quadrado com imagem - estilo iPhone */}
-              <div className="w-[59px] h-[59px] sm:w-[67px] sm:h-[67px] bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
+              <div className="w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-gray-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={action.image}
                   alt={action.title}
-                  width={59}
-                  height={59}
+                  width={70}
+                  height={70}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-contain p-1.5"
                 />
               </div>
               {/* Título abaixo */}
-              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[70px]">
+              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[80px]">
                 {action.title}
               </span>
             </div>
