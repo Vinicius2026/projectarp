@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import EnablePush from '../components/EnablePush'
 import ModulesCarousel from './_components/ModulesCarousel'
+import BannerSection from './_components/BannerSection'
 import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
@@ -136,6 +137,11 @@ export default async function HomePage() {
             Chat Comunidade
           </button>
         </div>
+      </div>
+
+      {/* Banner Section */}
+      <div className="px-4 pb-6">
+        <BannerSection />
       </div>
 
       {/* Áreas */}
