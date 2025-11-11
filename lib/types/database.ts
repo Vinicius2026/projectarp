@@ -2,6 +2,10 @@ export type Profile = {
   id: string
   full_name: string | null
   plan_type: string
+  role?: string | null
+  bio?: string | null
+  total_revenue?: number | null
+  total_units_sold?: number | null
 }
 
 export type Area = {

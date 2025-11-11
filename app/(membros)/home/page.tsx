@@ -1,8 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
-import { Bell, Moon, Share2 } from 'lucide-react'
 import EnablePush from '../components/EnablePush'
-import UserMenu from '../components/UserMenu'
 import ModulesCarousel from './_components/ModulesCarousel'
+import Image from 'next/image'
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -29,60 +28,91 @@ export default async function HomePage() {
     .select('*')
     .order('id', { ascending: true })
 
+  // Dados mockados (podem ser substituídos por dados reais do banco depois)
+  const totalRevenue = profile?.total_revenue ?? 1402294.39
+  const totalUnitsSold = profile?.total_units_sold ?? 54908
+  const userBio = profile?.bio ?? '❤️‍🔥 Jesus @pedrobertotto'
+  const userRole = profile?.role === 'admin' ? 'Administrador' : 'Usuário'
+  const userName = profile?.full_name || 'Usuário'
+  const initial = (userName?.[0] || 'U').toUpperCase()
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 p-4">
-        {/* Brand centralizado com efeito de piscar suave */}
-        <div className="mb-1 flex justify-center">
-          <span className="text-xs sm:text-sm font-semibold tracking-wide text-gray-900 animate-soft-blink">ARD APP</span>
-        </div>
-        <div className="flex items-center gap-3 flex-wrap mb-3">
-          {/* Perfil com menu */}
-          <UserMenu name={profile?.full_name || 'Usuário'} planType={profile?.plan_type || 'Plano Premium'} />
-
-          {/* Espaço para empurrar ações para a direita */}
-          <div className="flex-1" />
-
-          {/* Botão Ativar Notificações (antes dos ícones) */}
-          <EnablePush />
-
-          {/* Ícones */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
-              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-            <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
-              <Moon className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-            <button className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-lg text-gray-600">
-              <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-          </div>
+      {/* Header estilo Instagram */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+        {/* Nome do usuário no topo com símbolo verificado */}
+        <div className="flex items-center justify-center gap-2 px-4 py-3">
+          <h1 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h1>
+          {profile?.role === 'admin' && (
+            <Image
+              src="/simb-king-blue-01.png"
+              alt="Verificado"
+              width={15}
+              height={15}
+              className="w-[15px] h-[15px]"
+            />
+          )}
         </div>
       </header>
 
-      {/* Banner */}
-      <div className="p-4">
-        <div className="bg-gradient-to-br from-pink-300 via-pink-200 to-pink-100 rounded-2xl p-8 mb-6 relative overflow-hidden">
-          <div className="relative z-10">
-            <div className="flex items-center gap-4">
-              <div className="bg-pink-400 rounded-2xl p-6 shadow-lg">
-                <div className="text-white text-2xl font-bold font-roboto-bold">FlashSal</div>
-                <div className="text-white text-sm">+MindSet</div>
+      {/* Perfil estilo Instagram */}
+      <div className="px-4 py-6">
+        <div className="flex items-start gap-4 mb-4">
+          {/* Foto de perfil circular */}
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0">
+            <span className="text-white font-bold text-2xl sm:text-3xl">{initial}</span>
+          </div>
+
+          {/* Estatísticas */}
+          <div className="flex-1 flex items-center justify-around sm:justify-start sm:gap-8">
+            <div className="text-center sm:text-left">
+              <div className="text-base sm:text-lg font-bold font-roboto-bold text-gray-900">
+                R${totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </div>
-              <div>
-                <h2 className="text-2xl font-bold font-roboto-bold text-gray-900 mb-1">Sua Rotina</h2>
-                <h2 className="text-2xl font-bold font-roboto-bold text-gray-900">Lucrativa</h2>
+              <div className="text-xs sm:text-sm text-gray-600">Faturado</div>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="text-base sm:text-lg font-bold font-roboto-bold text-gray-900">
+                {totalUnitsSold.toLocaleString('pt-BR')}
               </div>
+              <div className="text-xs sm:text-sm text-gray-600">Unidades Vendidas</div>
             </div>
           </div>
-          {/* Decorative circles */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-pink-200 rounded-full opacity-50 -mr-16 -mt-16"></div>
-          <div className="absolute bottom-0 left-1/3 w-24 h-24 bg-pink-300 rounded-full opacity-30 -mb-12"></div>
         </div>
 
-        {/* Áreas */}
+        {/* Nome e função */}
+        <div className="mb-2">
+          <div className="flex items-center gap-2 mb-1">
+            <h2 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h2>
+            {profile?.role === 'admin' && (
+              <Image
+                src="/simb-king-blue-01.png"
+                alt="Verificado"
+                width={15}
+                height={15}
+                className="w-[15px] h-[15px]"
+              />
+            )}
+          </div>
+          <p className="text-xs text-gray-600">{userRole}</p>
+        </div>
+
+        {/* Bio */}
+        <div className="mb-4">
+          <p className="text-sm text-gray-900 whitespace-pre-wrap">{userBio}</p>
+        </div>
+
+        {/* Botões */}
+        <div className="flex gap-2 mb-6">
+          <EnablePush />
+          <button className="flex-1 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 hover:bg-gray-50 transition">
+            Chat Comunidade
+          </button>
+        </div>
+      </div>
+
+      {/* Áreas */}
+      <div className="px-4 pb-6">
         {areas && areas.map((area) => {
           const areaModules = modules?.filter((m) => m.area_id === area.id) || []
           

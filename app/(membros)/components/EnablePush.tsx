@@ -70,8 +70,8 @@ export default function EnablePush() {
   return (
     <button
       onClick={enable}
-      disabled={loading}
-      className="px-2.5 py-1.5 md:px-3 md:py-2 rounded-md bg-blue-600 text-white text-xs md:text-sm disabled:opacity-60 whitespace-nowrap"
+      disabled={loading || ok}
+      className="flex-1 px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium disabled:opacity-60 hover:bg-blue-700 transition whitespace-nowrap"
     >
       {ok ? 'Notificações Ativadas' : (loading ? 'Ativando...' : 'Ativar Notificações')}
     </button>
