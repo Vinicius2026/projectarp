@@ -78,26 +78,27 @@ export default async function HomePage() {
 
       {/* Perfil estilo Instagram */}
       <div className="px-4 py-6">
-        {/* Foto de perfil circular */}
-        <div className="flex justify-center mb-4">
+        {/* Foto de perfil e estatísticas lado a lado */}
+        <div className="flex items-center gap-6 sm:gap-8 mb-4">
+          {/* Foto de perfil circular à esquerda */}
           <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-full flex items-center justify-center shrink-0">
             <span className="text-white font-bold text-2xl sm:text-3xl">{initial}</span>
           </div>
-        </div>
 
-        {/* Estatísticas - ao lado da imagem, mais abaixo */}
-        <div className="flex items-center justify-around sm:justify-center sm:gap-12 mb-4">
-          <div className="text-center">
-            <div className="text-sm font-bold font-roboto-bold text-gray-900">
-              R${totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          {/* Estatísticas à direita da imagem */}
+          <div className="flex items-center gap-6 sm:gap-8 flex-1">
+            <div className="text-center">
+              <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900">
+                R${totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
+              <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">Faturado</div>
             </div>
-            <div className="text-[10px] sm:text-xs text-gray-600">Faturado</div>
-          </div>
-          <div className="text-center">
-            <div className="text-sm font-bold font-roboto-bold text-gray-900">
-              {totalUnitsSold.toLocaleString('pt-BR')}
+            <div className="text-center">
+              <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900">
+                {totalUnitsSold.toLocaleString('pt-BR')}
+              </div>
+              <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">Unidades Vendidas</div>
             </div>
-            <div className="text-[10px] sm:text-xs text-gray-600">Unidades Vendidas</div>
           </div>
         </div>
 
