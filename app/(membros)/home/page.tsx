@@ -125,6 +125,58 @@ export default async function HomePage() {
           </div>
         </div>
 
+        {/* Ícones de conquistas */}
+        <div className="flex items-center gap-1 mb-2">
+          <Image
+            src="/5k.png"
+            alt="5K"
+            width={10}
+            height={10}
+            className="w-[10px] h-[10px]"
+            unoptimized
+          />
+          <Image
+            src="/10k.png"
+            alt="10K"
+            width={10}
+            height={10}
+            className="w-[10px] h-[10px]"
+            unoptimized
+          />
+          <Image
+            src="/33k.png"
+            alt="33K"
+            width={10}
+            height={10}
+            className="w-[10px] h-[10px]"
+            unoptimized
+          />
+          <Image
+            src="/250k.png"
+            alt="250K"
+            width={10}
+            height={10}
+            className="w-[10px] h-[10px]"
+            unoptimized
+          />
+          <Image
+            src="/500k.png"
+            alt="500K"
+            width={10}
+            height={10}
+            className="w-[10px] h-[10px]"
+            unoptimized
+          />
+          <Image
+            src="/1m.png"
+            alt="1M"
+            width={10}
+            height={10}
+            className="w-[10px] h-[10px]"
+            unoptimized
+          />
+        </div>
+
         {/* Nome e tipo de usuário */}
         <div className="mb-2">
           <h2 className="text-sm font-bold font-roboto-bold text-gray-900 mb-1">{userName}</h2>
