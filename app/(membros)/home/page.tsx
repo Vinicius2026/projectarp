@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import EnablePush from '../components/EnablePush'
 import ModulesCarousel from './_components/ModulesCarousel'
 import BannerSection from './_components/BannerSection'
+import QuickActions from './_components/QuickActions'
 import SideMenu from '../components/SideMenu'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
@@ -131,12 +132,15 @@ export default async function HomePage() {
         </div>
 
         {/* Botões */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-2 mb-4">
           <EnablePush />
           <button className="flex-1 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 hover:bg-gray-50 transition">
             Chat Comunidade
           </button>
         </div>
+
+        {/* Quick Actions */}
+        <QuickActions />
       </div>
 
       {/* Banner Section */}
