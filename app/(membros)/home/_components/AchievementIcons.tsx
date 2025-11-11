@@ -104,7 +104,7 @@ export default function AchievementIcons() {
 
             {/* Conteúdo do Modal - Grid de Prêmios */}
             <div className="p-6">
-              <div className="grid grid-cols-3 gap-4 justify-items-center">
+              <div className="grid grid-cols-3 gap-4 justify-items-center mb-6">
                 {prizes.map((prize, index) => (
                   <div key={index} className="flex items-center justify-center">
                     <Image
@@ -117,6 +117,16 @@ export default function AchievementIcons() {
                     />
                   </div>
                 ))}
+              </div>
+              
+              {/* Botão Todos Premios */}
+              <div className="flex justify-center">
+                <button
+                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                  disabled
+                >
+                  Todos Premios
+                </button>
               </div>
             </div>
           </div>
