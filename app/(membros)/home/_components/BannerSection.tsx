@@ -43,7 +43,7 @@ export default function BannerSection() {
             return (
               <div
                 key={number}
-                className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center snap-start shadow-sm hover:shadow-md transition overflow-hidden relative"
+                className="flex-shrink-0 snap-start"
               >
                 {brand ? (
                   <>
@@ -55,17 +55,15 @@ export default function BannerSection() {
                       height={128}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-contain p-2"
+                      className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover border-2 border-gray-200 shadow-sm hover:shadow-md transition"
                     />
-                    {/* Número no canto superior esquerdo */}
-                    <span className="absolute top-1 left-1 text-gray-900 font-bold text-sm sm:text-base font-roboto-bold bg-white/80 rounded-full w-6 h-6 flex items-center justify-center">
-                      {number}
-                    </span>
                   </>
                 ) : (
-                  <span className="text-gray-900 font-bold text-2xl sm:text-3xl font-roboto-bold">
-                    {number}
-                  </span>
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition">
+                    <span className="text-gray-900 font-bold text-2xl sm:text-3xl font-roboto-bold">
+                      {number}
+                    </span>
+                  </div>
                 )}
               </div>
             )
