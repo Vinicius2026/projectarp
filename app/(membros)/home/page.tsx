@@ -1,8 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
-import { Bell, Moon, Share2, ChevronLeft, ChevronRight } from 'lucide-react'
-import Link from 'next/link'
+import { Bell, Moon, Share2 } from 'lucide-react'
 import EnablePush from '../components/EnablePush'
 import UserMenu from '../components/UserMenu'
+import ModulesCarousel from './_components/ModulesCarousel'
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -94,62 +94,7 @@ export default async function HomePage() {
               </div>
 
               {/* Modules Carousel */}
-              <div className="relative">
-                <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-                  {areaModules.length > 0 ? (
-                    areaModules.map((module, index: number) => (
-                      <Link
-                        key={module.id}
-                        href={`/modulo/${module.id}`}
-                        className="flex-shrink-0 w-48 md:w-56 lg:w-64 snap-start"
-                      >
-                        <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl aspect-[9/16] p-4 md:p-6 relative overflow-hidden">
-                          {module.thumbnail_url ? (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img 
-                              src={module.thumbnail_url} 
-                              alt={module.title}
-                              className="w-full h-full object-cover absolute inset-0"
-                              draggable={false}
-                            />
-                          ) : (
-                            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-                              <h3 className="text-2xl font-bold text-center mb-2">
-                                {module.title}
-                              </h3>
-                              <p className="text-sm text-center opacity-90">
-                                {module.description}
-                              </p>
-                            </div>
-                          )}
-                          {/* Module number badge */}
-                          <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
-                            <span className="text-white text-sm font-medium">
-                              #{index + 1}
-                            </span>
-                          </div>
-                        </div>
-                      </Link>
-                    ))
-                  ) : (
-                    <div className="w-full text-center py-8 text-gray-500">
-                      Nenhum módulo nesta área ainda
-                    </div>
-                  )}
-                </div>
-
-                {/* Navigation Arrows */}
-                {areaModules.length > 1 && (
-                  <>
-                    <button className="absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg">
-                      <ChevronLeft className="w-6 h-6 text-gray-900" />
-                    </button>
-                    <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg">
-                      <ChevronRight className="w-6 h-6 text-gray-900" />
-                    </button>
-                  </>
-                )}
-              </div>
+              <ModulesCarousel modules={areaModules} />
             </div>
           )
         })}
