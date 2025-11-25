@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { ChevronLeft, Send, DollarSign, Home, ChevronRight, MoreVertical } from 'lucide-react'
+import { Send, DollarSign, Home, ChevronRight } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import ProductGradient from './_components/ProductGradient'
+import ProductHeader from './_components/ProductHeader'
 
 // Dados mockados dos produtos
 const produtos = {
@@ -101,22 +102,7 @@ export default function ProdutoPage({
       <ProductGradient color={produto.corPrimaria} />
 
       {/* Header */}
-      <header className="bg-white dark:bg-[#0b1014] border-b border-gray-200 dark:border-gray-700 p-4 sticky top-0 z-10 transition-colors">
-        <div className="flex items-center justify-between max-w-2xl mx-auto">
-          <Link 
-            href="/home" 
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
-          </Link>
-          <h1 className="text-base font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">
-            Detalhes
-          </h1>
-          <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-            <MoreVertical className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
-          </button>
-        </div>
-      </header>
+      <ProductHeader />
 
       {/* Conteúdo Principal */}
       <div className="max-w-2xl mx-auto px-4 py-6 pb-40">
