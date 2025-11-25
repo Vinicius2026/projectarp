@@ -77,7 +77,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
     <div className="max-w-2xl mx-auto">
       {/* Upload de imagem */}
       <div className="mb-8">
-        <label className="block text-sm font-medium text-gray-700 mb-3">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 transition-colors">
           Foto de Perfil
         </label>
         <div className="flex items-center gap-4">
@@ -115,14 +115,14 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
             />
             <label
               htmlFor="avatar-upload"
-              className={`inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer ${
                 uploading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
               <Camera className="w-4 h-4" />
               {uploading ? 'Enviando...' : 'Alterar foto'}
             </label>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 transition-colors">
               JPG, PNG ou GIF. Máximo 25MB
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
         {/* Nome completo */}
         <div>
-          <label htmlFor="full_name" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="full_name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors">
             Nome Completo
           </label>
           <input
@@ -141,7 +141,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
             id="full_name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors"
             placeholder="Seu nome completo"
             required
           />
@@ -149,7 +149,7 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
 
         {/* Bio */}
         <div>
-          <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="bio" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors">
             Bio
           </label>
           <textarea
@@ -157,11 +157,11 @@ export default function ProfileForm({ profile }: ProfileFormProps) {
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+            className="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition-colors"
             placeholder="Conte um pouco sobre você..."
             maxLength={150}
           />
-          <p className="text-xs text-gray-500 mt-1">{bio.length}/150 caracteres</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 transition-colors">{bio.length}/150 caracteres</p>
         </div>
 
         {/* Mensagem de feedback */}

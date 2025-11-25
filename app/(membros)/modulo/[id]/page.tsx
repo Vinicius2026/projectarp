@@ -25,23 +25,23 @@ export default async function ModuloPage({
 
   if (!module) {
     return (
-      <div className="p-4">
-        <h1 className="text-xl font-bold font-roboto-bold text-gray-900">Módulo não encontrado</h1>
+      <div className="p-4 bg-white dark:bg-dark min-h-screen transition-colors">
+        <h1 className="text-xl font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">Módulo não encontrado</h1>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors">
       {/* Header com voltar */}
-      <header className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
+      <header className="bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-700 p-4 sticky top-0 z-10 transition-colors">
         <div className="flex items-center gap-3">
-          <Link href="/home" className="p-2 hover:bg-gray-100 rounded-lg">
-            <ChevronLeft className="w-6 h-6 text-gray-900" />
+          <Link href="/home" className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+            <ChevronLeft className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
           </Link>
           <div>
-            <p className="text-xs text-gray-500">Você está acessando</p>
-            <h1 className="text-lg font-bold font-roboto-bold text-gray-900">{module.title}</h1>
+            <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors">Você está acessando</p>
+            <h1 className="text-lg font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">{module.title}</h1>
           </div>
         </div>
       </header>
@@ -76,10 +76,10 @@ export default async function ModuloPage({
 
         {/* Lista de aulas */}
         <div className="mb-6">
-          <h2 className="text-xl font-bold font-roboto-bold text-gray-900 mb-4">
+          <h2 className="text-xl font-bold font-roboto-bold text-gray-900 dark:text-white mb-4 transition-colors">
             Hora de faturar com sua marca viral!
           </h2>
-          <p className="text-sm text-gray-600 mb-4">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 transition-colors">
             {lessons?.length || 0} vídeos
           </p>
 
@@ -89,7 +89,7 @@ export default async function ModuloPage({
                 <Link
                   key={lesson.id}
                   href={`/aula/${lesson.id}`}
-                  className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition"
+                  className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-md transition-colors"
                 >
                   {/* Thumbnail */}
                   <div className="flex-shrink-0 w-32 h-20 bg-gray-900 rounded-lg relative overflow-hidden">
@@ -119,16 +119,16 @@ export default async function ModuloPage({
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2 transition-colors">
                       {lesson.title}
                     </h3>
-                    <p className="text-xs text-gray-500 mb-2 line-clamp-1">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1 transition-colors">
                       {lesson.description_content || 'Sem descrição'}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-400">Aula {index + 1}</span>
+                      <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors">Aula {index + 1}</span>
                       {typeof (lesson as any).duration_seconds === 'number' && (lesson as any).duration_seconds > 0 && (
-                        <span className="text-xs text-blue-600">
+                        <span className="text-xs text-blue-600 dark:text-blue-400 transition-colors">
                           {Math.round(((lesson as any).duration_seconds as number) / 60)}min
                         </span>
                       )}
@@ -137,7 +137,7 @@ export default async function ModuloPage({
                 </Link>
               ))
             ) : (
-              <div className="text-center py-12 text-gray-500">
+              <div className="text-center py-12 text-gray-500 dark:text-gray-400 transition-colors">
                 Nenhuma aula disponível ainda
               </div>
             )}

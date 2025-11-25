@@ -21,14 +21,14 @@ export default async function PerfilPage() {
     .single()
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <header className="bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10 transition-colors">
         <div className="flex items-center gap-3 px-4 py-3">
-          <Link href="/home" className="p-2 hover:bg-gray-100 rounded-lg">
-            <ChevronLeft className="w-6 h-6 text-gray-900" />
+          <Link href="/home" className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+            <ChevronLeft className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
           </Link>
-          <h1 className="text-lg font-bold font-roboto-bold text-gray-900">Perfil</h1>
+          <h1 className="text-lg font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">Perfil</h1>
         </div>
       </header>
 

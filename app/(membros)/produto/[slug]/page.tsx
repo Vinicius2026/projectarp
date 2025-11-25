@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ChevronLeft, Send, DollarSign, Home, ChevronRight, MoreVertical } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import ProductGradient from './_components/ProductGradient'
 
 // Dados mockados dos produtos
 const produtos = {
@@ -95,29 +96,24 @@ export default function ProdutoPage({
   const precoComDesconto = produto.preco * (1 - produto.desconto / 100)
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden bg-white dark:bg-dark transition-colors">
       {/* Gradient Background */}
-      <div 
-        className="fixed inset-0 -z-10"
-        style={{
-          background: `linear-gradient(to bottom, ${produto.corPrimaria}20 0%, #FFFFFF 100%)`
-        }}
-      />
+      <ProductGradient color={produto.corPrimaria} />
 
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 p-4 sticky top-0 z-10">
+      <header className="bg-white/80 dark:bg-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 p-4 sticky top-0 z-10 transition-colors">
         <div className="flex items-center justify-between max-w-2xl mx-auto">
           <Link 
             href="/home" 
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-900" />
+            <ChevronLeft className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
           </Link>
-          <h1 className="text-base font-bold font-roboto-bold text-gray-900">
+          <h1 className="text-base font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">
             Detalhes
           </h1>
-          <button className="p-2 hover:bg-gray-100 rounded-lg transition">
-            <MoreVertical className="w-6 h-6 text-gray-900" />
+          <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+            <MoreVertical className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
           </button>
         </div>
       </header>
@@ -188,7 +184,7 @@ export default function ProdutoPage({
       </div>
 
       {/* Footer com Botão e Menu de Navegação */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-dark shadow-lg transition-colors">
         {/* Botão Me Afiliar */}
         <div className="px-4 pt-4 pb-2">
           <div className="max-w-2xl mx-auto">
@@ -204,30 +200,30 @@ export default function ProdutoPage({
         </div>
 
         {/* Menu de Navegação Inferior */}
-        <nav className="border-t border-gray-200">
+        <nav className="border-t border-gray-200 dark:border-gray-700 transition-colors">
           <div className="max-w-2xl mx-auto px-4 py-3">
             <div className="flex items-center justify-around">
               {/* Ícone Enviar/Compartilhar */}
-              <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition">
+              <button className="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                 <Send className="w-6 h-6" />
               </button>
 
               {/* Ícone Dinheiro/Preço */}
-              <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition">
+              <button className="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                 <DollarSign className="w-6 h-6" />
               </button>
 
               {/* Ícone Home - Ativo */}
               <Link 
                 href="/home"
-                className="flex flex-col items-center gap-1 transition"
+                className="flex flex-col items-center gap-1 transition-colors"
                 style={{ color: produto.corPrimaria }}
               >
                 <Home className="w-6 h-6" />
               </Link>
 
               {/* Ícone Próximo */}
-              <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition">
+              <button className="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                 <ChevronRight className="w-6 h-6" />
               </button>
             </div>

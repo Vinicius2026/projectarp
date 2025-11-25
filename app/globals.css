@@ -104,6 +104,15 @@
   .dark-mode .text-yellow-400 {
     /* Manter cores específicas */
   }
+
+  /* Ajustar gradient de background no tema escuro para produtos */
+  .product-gradient {
+    background: linear-gradient(to bottom, rgba(var(--product-color-rgb, 139, 69, 19), 0.2) 0%, #FFFFFF 100%);
+  }
+
+  .dark-mode .product-gradient {
+    background: linear-gradient(to bottom, rgba(var(--product-color-rgb, 139, 69, 19), 0.2) 0%, #0b1014 100%) !important;
+  }
 }
 
 

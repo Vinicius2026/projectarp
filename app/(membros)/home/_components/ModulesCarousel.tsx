@@ -29,7 +29,7 @@ export default function ModulesCarousel({ modules }: ModulesCarouselProps) {
 
   if (modules.length === 0) {
     return (
-      <div className="w-full text-center py-8 text-gray-500">
+      <div className="w-full text-center py-8 text-gray-500 dark:text-gray-400 transition-colors">
         Nenhum módulo nesta área ainda
       </div>
     )
@@ -67,7 +67,7 @@ export default function ModulesCarousel({ modules }: ModulesCarouselProps) {
                 </div>
               )}
               {/* Module number badge */}
-              <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-lg px-2 py-1">
+              <div className="absolute top-3 right-3 bg-white/20 dark:bg-black/30 backdrop-blur-sm rounded-lg px-2 py-1">
                 <span className="text-white text-xs font-medium">
                   #{index + 1}
                 </span>
@@ -86,10 +86,10 @@ export default function ModulesCarousel({ modules }: ModulesCarouselProps) {
               e.stopPropagation()
               scroll('left')
             }}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 shadow-lg hover:bg-gray-50 transition z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors z-10"
             aria-label="Anterior"
           >
-            <ChevronLeft className="w-4 h-4 text-gray-900" />
+            <ChevronLeft className="w-4 h-4 text-gray-900 dark:text-white transition-colors" />
           </button>
           <button 
             onClick={(e) => {
@@ -97,10 +97,10 @@ export default function ModulesCarousel({ modules }: ModulesCarouselProps) {
               e.stopPropagation()
               scroll('right')
             }}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 shadow-lg hover:bg-gray-50 transition z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors z-10"
             aria-label="Próximo"
           >
-            <ChevronRight className="w-4 h-4 text-gray-900" />
+            <ChevronRight className="w-4 h-4 text-gray-900 dark:text-white transition-colors" />
           </button>
         </>
       )}

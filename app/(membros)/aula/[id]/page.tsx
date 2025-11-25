@@ -32,8 +32,8 @@ export default async function AulaPage({
 
   if (!lesson) {
     return (
-      <div className="p-4">
-        <h1 className="text-xl font-bold font-roboto-bold text-gray-900">Aula não encontrada</h1>
+      <div className="p-4 bg-white dark:bg-dark min-h-screen transition-colors">
+        <h1 className="text-xl font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">Aula não encontrada</h1>
       </div>
     )
   }
@@ -43,19 +43,19 @@ export default async function AulaPage({
   const nextLesson = allLessons?.[currentIndex + 1]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
+      <header className="bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-700 p-4 sticky top-0 z-10 transition-colors">
         <div className="flex items-center gap-3">
           <Link 
             href={`/modulo/${lesson.module_id}`} 
-            className="p-2 hover:bg-gray-100 rounded-lg"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-900" />
+            <ChevronLeft className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
           </Link>
           <div className="flex-1 min-w-0">
-            <p className="text-xs text-gray-500">Você está acessando</p>
-            <h1 className="text-base font-bold font-roboto-bold text-gray-900 truncate">
+            <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors">Você está acessando</p>
+            <h1 className="text-base font-bold font-roboto-bold text-gray-900 dark:text-white truncate transition-colors">
               {lesson.modules?.title}
             </h1>
           </div>
@@ -65,7 +65,7 @@ export default async function AulaPage({
       {/* Conteúdo */}
       <div className="p-4">
         {/* Título da Aula */}
-        <h2 className="text-xl font-bold font-roboto-bold text-gray-900 mb-4">
+        <h2 className="text-xl font-bold font-roboto-bold text-gray-900 dark:text-white mb-4 transition-colors">
           {lesson.title}
         </h2>
 
@@ -119,10 +119,10 @@ export default async function AulaPage({
         {/* Lista de próximas aulas */}
         {allLessons && allLessons.length > 1 && (
           <div className="mb-6">
-            <h3 className="text-lg font-bold font-roboto-bold text-gray-900 mb-4">
+            <h3 className="text-lg font-bold font-roboto-bold text-gray-900 dark:text-white mb-4 transition-colors">
               Hora de faturar com sua marca viral!
             </h3>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 transition-colors">
               {allLessons.length} vídeos
             </p>
 
@@ -131,10 +131,10 @@ export default async function AulaPage({
                 <Link
                   key={otherLesson.id}
                   href={`/aula/${otherLesson.id}`}
-                  className={`flex items-start gap-3 p-4 rounded-xl transition ${
+                  className={`flex items-start gap-3 p-4 rounded-xl transition-colors ${
                     otherLesson.id === lesson.id
-                      ? 'bg-blue-50 border-2 border-blue-500'
-                      : 'bg-white border border-gray-200 hover:shadow-md'
+                      ? 'bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-500 dark:border-blue-400'
+                      : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-md'
                   }`}
                 >
                   {/* Thumbnail pequeno */}
@@ -154,16 +154,16 @@ export default async function AulaPage({
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <h4 className={`text-sm font-semibold mb-1 line-clamp-2 ${
-                      otherLesson.id === lesson.id ? 'text-blue-600' : 'text-gray-900'
+                    <h4 className={`text-sm font-semibold mb-1 line-clamp-2 transition-colors ${
+                      otherLesson.id === lesson.id ? 'text-blue-600 dark:text-blue-400' : 'text-gray-900 dark:text-white'
                     }`}>
                       {otherLesson.title}
                     </h4>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 dark:text-gray-400 transition-colors">
                         Aula {index + 1}
                       </span>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors">
                         13min
                       </span>
                     </div>
@@ -179,13 +179,13 @@ export default async function AulaPage({
           {prevLesson ? (
             <Link
               href={`/aula/${prevLesson.id}`}
-              className="flex-1 px-4 py-3 bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-200 transition text-center font-medium"
+              className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-center font-medium"
             >
               <ChevronLeft className="w-5 h-5 inline mr-1" />
               Aula Anterior
             </Link>
           ) : (
-            <div className="flex-1 px-4 py-3 bg-gray-100 text-gray-400 rounded-lg text-center font-medium opacity-50 cursor-not-allowed">
+            <div className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 rounded-lg text-center font-medium opacity-50 cursor-not-allowed transition-colors">
               <ChevronLeft className="w-5 h-5 inline mr-1" />
               Aula Anterior
             </div>
@@ -194,13 +194,13 @@ export default async function AulaPage({
           {nextLesson ? (
             <Link
               href={`/aula/${nextLesson.id}`}
-              className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-center font-medium"
+              className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center font-medium"
             >
               Próxima Aula
               <ChevronRight className="w-5 h-5 inline ml-1" />
             </Link>
           ) : (
-            <div className="flex-1 px-4 py-3 bg-gray-100 text-gray-400 rounded-lg text-center font-medium opacity-50 cursor-not-allowed">
+            <div className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 rounded-lg text-center font-medium opacity-50 cursor-not-allowed transition-colors">
               Próxima Aula
               <ChevronRight className="w-5 h-5 inline ml-1" />
             </div>

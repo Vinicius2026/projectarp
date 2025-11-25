@@ -71,7 +71,7 @@ export default function AchievementIcons() {
         {/* Seta após a imagem 1m.png */}
         <button
           onClick={() => setIsPrizesOpen(true)}
-          className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+          className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           aria-label="Ver prêmios"
         >
           <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -85,17 +85,17 @@ export default function AchievementIcons() {
           onClick={() => setIsPrizesOpen(false)}
         >
           <div 
-            className="w-full max-w-md rounded-lg bg-white shadow-lg overflow-hidden"
+            className="w-full max-w-md rounded-lg bg-white dark:bg-gray-800 shadow-lg overflow-hidden transition-colors"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header do Modal */}
-            <div className="p-4 border-b relative">
-              <h3 className="text-lg font-bold font-roboto-bold text-gray-900 text-center">
+            <div className="p-4 border-b border-gray-200 dark:border-gray-700 relative transition-colors">
+              <h3 className="text-lg font-bold font-roboto-bold text-gray-900 dark:text-white text-center transition-colors">
                 Premios Recebidos
               </h3>
               <button
                 onClick={() => setIsPrizesOpen(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute top-4 right-4 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Fechar"
               >
                 <X className="w-5 h-5" />
