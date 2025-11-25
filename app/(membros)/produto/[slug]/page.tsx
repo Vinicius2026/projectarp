@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, Send, DollarSign, Home, ChevronRight, MoreVertical } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 // Dados mockados dos produtos
@@ -116,21 +116,31 @@ export default function ProdutoPage({
           <h1 className="text-base font-bold font-roboto-bold text-gray-900">
             Detalhes
           </h1>
-          <div className="w-10" /> {/* Spacer para centralizar */}
+          <button className="p-2 hover:bg-gray-100 rounded-lg transition">
+            <MoreVertical className="w-6 h-6 text-gray-900" />
+          </button>
         </div>
       </header>
 
       {/* Conteúdo Principal */}
-      <div className="max-w-2xl mx-auto px-4 py-6 pb-32">
-        {/* Imagem do Produto */}
+      <div className="max-w-2xl mx-auto px-4 py-6 pb-40">
+        {/* Imagem do Produto com Moldura Circular */}
         <div className="flex justify-center mb-6">
-          <div className="w-64 h-64 sm:w-80 sm:h-80 relative">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={produto.imagemPrincipal}
-              alt={produto.nome}
-              className="w-full h-full object-contain drop-shadow-2xl"
+          <div className="relative">
+            {/* Círculo de fundo com cor do produto */}
+            <div 
+              className="w-64 h-64 sm:w-80 sm:h-80 rounded-full absolute inset-0 opacity-20 blur-3xl"
+              style={{ backgroundColor: produto.corPrimaria }}
             />
+            {/* Moldura circular */}
+            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-white to-gray-100 p-4 shadow-2xl relative overflow-hidden border-4 border-white">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={produto.imagemPrincipal}
+                alt={produto.nome}
+                className="w-full h-full object-contain relative z-10"
+              />
+            </div>
           </div>
         </div>
 
@@ -173,18 +183,52 @@ export default function ProdutoPage({
         </div>
       </div>
 
-      {/* Botão Fixo no Footer */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg">
-        <div className="max-w-2xl mx-auto">
-          <button
-            className="w-full py-4 rounded-xl text-white font-bold font-roboto-bold text-lg transition-all hover:opacity-90 active:scale-95"
-            style={{ 
-              backgroundColor: produto.corPrimaria,
-            }}
-          >
-            Me afiliar
-          </button>
+      {/* Footer com Botão e Menu de Navegação */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg">
+        {/* Botão Me Afiliar */}
+        <div className="px-4 pt-4 pb-2">
+          <div className="max-w-2xl mx-auto">
+            <button
+              className="w-full py-4 rounded-xl text-white font-bold font-roboto-bold text-lg transition-all hover:opacity-90 active:scale-95"
+              style={{ 
+                backgroundColor: produto.corPrimaria,
+              }}
+            >
+              Me afiliar
+            </button>
+          </div>
         </div>
+
+        {/* Menu de Navegação Inferior */}
+        <nav className="border-t border-gray-200">
+          <div className="max-w-2xl mx-auto px-4 py-3">
+            <div className="flex items-center justify-around">
+              {/* Ícone Enviar/Compartilhar */}
+              <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition">
+                <Send className="w-6 h-6" />
+              </button>
+
+              {/* Ícone Dinheiro/Preço */}
+              <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition">
+                <DollarSign className="w-6 h-6" />
+              </button>
+
+              {/* Ícone Home - Ativo */}
+              <Link 
+                href="/home"
+                className="flex flex-col items-center gap-1 transition"
+                style={{ color: produto.corPrimaria }}
+              >
+                <Home className="w-6 h-6" />
+              </Link>
+
+              {/* Ícone Próximo */}
+              <button className="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition">
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
   )
