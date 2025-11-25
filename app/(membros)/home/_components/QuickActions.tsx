@@ -7,8 +7,6 @@ interface QuickAction {
 const quickActions: QuickAction[] = [
   { id: 1, image: '/1.png', title: 'Grupo Vip' },
   { id: 2, image: '/5.png', title: 'KGD IA' },
-  { id: 3, image: '/2.png', title: 'Vídeos Bust' },
-  { id: 4, image: '/4.png', title: 'Edição Bust' },
   { id: 5, image: '/3.png', title: 'Automação' },
 ]
 

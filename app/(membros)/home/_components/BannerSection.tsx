@@ -9,15 +9,6 @@ const brandImages = [
 export default function BannerSection() {
   return (
     <div className="mb-8">
-      {/* Texto acima do banner */}
-      <div className="flex items-center justify-center gap-3 mb-4" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
-        <span className="text-lg sm:text-xl font-bold text-gray-900">Aulas</span>
-        <span className="text-lg sm:text-xl font-bold text-gray-900">&gt;</span>
-        <span className="text-lg sm:text-xl font-bold text-gray-900">Produto</span>
-        <span className="text-lg sm:text-xl font-bold text-gray-900">&gt;</span>
-        <span className="text-lg sm:text-xl font-bold text-gray-900">Aplique</span>
-      </div>
-
       {/* Banner principal */}
       <div className="mb-3">
         <div className="w-full h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden relative">
