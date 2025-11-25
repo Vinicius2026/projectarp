@@ -1,6 +1,6 @@
 'use client'
 
-import { useTheme } from '../../contexts/ThemeContext'
+import { useTheme } from '../../../contexts/ThemeContext'
 
 interface ProductGradientProps {
   color: string
