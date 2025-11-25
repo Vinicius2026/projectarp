@@ -42,6 +42,18 @@ export default async function HomePage() {
   const userName = profile?.full_name || 'Usuário'
   const initial = (userName?.[0] || 'U').toUpperCase()
 
+  // Função para abreviar números
+  const abbreviateNumber = (num: number, isCurrency: boolean = false): string => {
+    if (num >= 1000000) {
+      const abbreviated = (num / 1000000).toFixed(1).replace('.', ',')
+      return isCurrency ? `R$${abbreviated} mi` : `${abbreviated} mi`
+    } else if (num >= 1000) {
+      const abbreviated = (num / 1000).toFixed(1).replace('.', ',')
+      return isCurrency ? `R$${abbreviated} mil` : `${abbreviated} mil`
+    }
+    return isCurrency ? `R$${num.toFixed(2).replace('.', ',')}` : num.toString()
+  }
+
   // Determinar tipo de usuário para exibição
   const getUserType = () => {
     if (profile?.role === 'admin') return 'Administrador'
@@ -112,13 +124,13 @@ export default async function HomePage() {
           <div className="flex items-center gap-6 sm:gap-8 flex-1">
             <div className="text-center">
               <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900">
-                R${totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                {abbreviateNumber(totalRevenue, true)}
               </div>
               <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">Faturado</div>
             </div>
             <div className="text-center">
               <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900">
-                {totalUnitsSold.toLocaleString('pt-BR')}
+                {abbreviateNumber(totalUnitsSold, false)}
               </div>
               <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">Unidades Vendidas</div>
             </div>
