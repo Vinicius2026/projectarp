@@ -124,23 +124,27 @@ export default function ProdutoPage({
 
       {/* Conteúdo Principal */}
       <div className="max-w-2xl mx-auto px-4 py-6 pb-40">
-        {/* Imagem do Produto com Moldura Circular */}
-        <div className="flex justify-center mb-6">
-          <div className="relative">
-            {/* Círculo de fundo com cor do produto */}
+        {/* Imagem do Produto Estilizada (Pop-out Effect) */}
+        <div className="flex justify-center mb-10 mt-4">
+          <div className="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
+            {/* 1. Glow/Brilho de fundo intenso */}
             <div 
-              className="w-64 h-64 sm:w-80 sm:h-80 rounded-full absolute inset-0 opacity-20 blur-3xl"
+              className="absolute inset-0 rounded-full opacity-40 blur-3xl transform scale-110 transition-all duration-700 animate-pulse"
               style={{ backgroundColor: produto.corPrimaria }}
             />
-            {/* Moldura circular */}
-            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-white to-gray-100 p-4 shadow-2xl relative overflow-hidden border-4 border-white">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={produto.imagemPrincipal}
-                alt={produto.nome}
-                className="w-full h-full object-contain relative z-10"
-              />
-            </div>
+            
+            {/* 2. Disco de vidro/fundo sutil atrás da imagem */}
+            <div className="absolute inset-6 rounded-full bg-white/30 backdrop-blur-sm border border-white/60 shadow-xl" />
+
+            {/* 3. Imagem com Zoom, Recorte e Sombra Projetada */}
+            <img
+              src={produto.imagemPrincipal}
+              alt={produto.nome}
+              className="relative z-10 w-full h-full object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.25)] transform scale-125 transition-transform duration-500 hover:scale-135"
+              style={{ 
+                filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.2))' 
+              }}
+            />
           </div>
         </div>
 
