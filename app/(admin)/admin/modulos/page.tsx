@@ -235,16 +235,6 @@ export default async function ModulosPage() {
                               </Link>
                               <EditModuleButtons module={module} areas={areas || []} />
                             </div>
-
-                            {/* Pagination info */}
-                            <div className="flex items-center justify-between mt-4 text-xs text-gray-500">
-                              <span>2/40</span>
-                              <div className="flex gap-1">
-                                <button className="w-6 h-6 flex items-center justify-center">←</button>
-                                <button className="w-6 h-6 flex items-center justify-center">→</button>
-                              </div>
-                              <span>5/40</span>
-                            </div>
                           </div>
                         </div>
                       ))
