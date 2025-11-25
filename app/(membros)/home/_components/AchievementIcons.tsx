@@ -19,62 +19,62 @@ export default function AchievementIcons() {
   return (
     <>
       {/* Ícones de conquistas */}
-      <div className="flex items-center gap-2 mb-2">
+      <div className="flex items-center gap-3 sm:gap-4 mb-4 overflow-x-auto pb-2 scrollbar-hide">
         <Image
           src="/5k.png"
           alt="5K"
-          width={30}
-          height={30}
-          className="w-[30px] h-[30px]"
+          width={60}
+          height={60}
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0"
           unoptimized
         />
         <Image
           src="/10k.png"
           alt="10K"
-          width={30}
-          height={30}
-          className="w-[30px] h-[30px]"
+          width={60}
+          height={60}
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0"
           unoptimized
         />
         <Image
           src="/33k.png"
           alt="33K"
-          width={30}
-          height={30}
-          className="w-[30px] h-[30px]"
+          width={60}
+          height={60}
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0"
           unoptimized
         />
         <Image
           src="/250k.png"
           alt="250K"
-          width={30}
-          height={30}
-          className="w-[30px] h-[30px]"
+          width={60}
+          height={60}
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0"
           unoptimized
         />
         <Image
           src="/500k.png"
           alt="500K"
-          width={30}
-          height={30}
-          className="w-[30px] h-[30px]"
+          width={60}
+          height={60}
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0"
           unoptimized
         />
         <Image
           src="/1m.png"
           alt="1M"
-          width={30}
-          height={30}
-          className="w-[30px] h-[30px]"
+          width={60}
+          height={60}
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0"
           unoptimized
         />
         {/* Seta após a imagem 1m.png */}
         <button
           onClick={() => setIsPrizesOpen(true)}
-          className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+          className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
           aria-label="Ver prêmios"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
         </button>
       </div>
 

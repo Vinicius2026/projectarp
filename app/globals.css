@@ -30,6 +30,15 @@
     display: inline-flex;
     white-space: nowrap;
   }
+
+  /* Esconder scrollbar mas manter funcionalidade de scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
 }
 
 

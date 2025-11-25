@@ -1,9 +1,11 @@
+import Link from 'next/link'
+
 const brandImages = [
-  { number: 1, image: '/coffe1.png', alt: 'Dreams Coffee' },
-  { number: 2, image: '/nulle1.png', alt: 'Nure' },
-  { number: 3, image: '/bigboom1.png', alt: 'BigBoom' },
-  { number: 4, image: '/blessy1.png', alt: 'Blessy' },
-  { number: 5, image: '/maxfem1.png', alt: 'Maxfem' },
+  { number: 1, image: '/coffe1.png', alt: 'Dreams Coffee', slug: 'dreams-coffee' },
+  { number: 2, image: '/nulle1.png', alt: 'Nure', slug: 'nure' },
+  { number: 3, image: '/bigboom1.png', alt: 'BigBoom', slug: 'bigboom' },
+  { number: 4, image: '/blessy1.png', alt: 'Blessy', slug: 'blessy' },
+  { number: 5, image: '/maxfem1.png', alt: 'Maxfem', slug: 'maxfem' },
 ]
 
 export default function BannerSection() {
@@ -46,7 +48,7 @@ export default function BannerSection() {
                 className="flex-shrink-0 snap-start"
               >
                 {brand ? (
-                  <>
+                  <Link href={`/produto/${brand.slug}`}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={brand.image}
@@ -55,9 +57,9 @@ export default function BannerSection() {
                       height={170}
                       loading="lazy"
                       decoding="async"
-                      className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] rounded-xl object-cover border-2 border-gray-200 shadow-sm hover:shadow-md transition"
+                      className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] rounded-xl object-cover border-2 border-gray-200 shadow-sm hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                     />
-                  </>
+                  </Link>
                 ) : (
                   <div className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition">
                     <span className="text-gray-900 font-bold text-2xl sm:text-3xl font-roboto-bold">
