@@ -39,6 +39,71 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
   }
+
+  /* Tema Escuro - Aplicado quando .dark-mode está no html */
+  :root.dark-mode {
+    --dark-bg: #0b1014;
+    --dark-text: #ffffff;
+  }
+
+  /* Classes utilitárias para tema escuro */
+  .dark-mode .dark\:bg-dark {
+    background-color: var(--dark-bg) !important;
+  }
+
+  .dark-mode .dark\:text-white {
+    color: var(--dark-text) !important;
+  }
+
+  .dark-mode .dark\:border-gray-700 {
+    border-color: #374151 !important;
+  }
+
+  .dark-mode .dark\:text-gray-300 {
+    color: #d1d5db !important;
+  }
+
+  .dark-mode .dark\:text-gray-400 {
+    color: #9ca3af !important;
+  }
+
+  .dark-mode .dark\:bg-gray-800 {
+    background-color: #1f2937 !important;
+  }
+
+  .dark-mode .dark\:hover\:bg-gray-800:hover {
+    background-color: #1f2937 !important;
+  }
+
+  /* Aplicar tema escuro globalmente na área de membros */
+  .dark-mode [data-members-area] {
+    background-color: var(--dark-bg) !important;
+  }
+
+  /* Converter textos pretos para brancos no tema escuro */
+  .dark-mode .text-gray-900 {
+    color: #ffffff !important;
+  }
+
+  .dark-mode .text-gray-800 {
+    color: #f3f4f6 !important;
+  }
+
+  .dark-mode .text-gray-700 {
+    color: #e5e7eb !important;
+  }
+
+  .dark-mode .text-gray-600 {
+    color: #d1d5db !important;
+  }
+
+  /* Manter textos específicos que devem permanecer com suas cores */
+  .dark-mode .text-blue-600,
+  .dark-mode .text-red-600,
+  .dark-mode .text-green-600,
+  .dark-mode .text-yellow-400 {
+    /* Manter cores específicas */
+  }
 }
 
 

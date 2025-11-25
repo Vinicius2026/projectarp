@@ -6,6 +6,7 @@ import QuickActions from './_components/QuickActions'
 import AchievementIcons from './_components/AchievementIcons'
 import AnimatedText from './_components/AnimatedText'
 import SideMenu from '../components/SideMenu'
+import ThemeToggle from '../components/ThemeToggle'
 import Image from 'next/image'
 import { logout } from '@/app/actions/auth'
 
@@ -74,16 +75,16 @@ export default async function HomePage() {
   const userType = getUserType()
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors">
       {/* Header estilo Instagram */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <header className="bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10 transition-colors">
         <div className="flex items-center justify-between px-4 py-3">
           {/* Menu hambúrguer */}
           <SideMenu />
           
           {/* Nome do usuário no topo com símbolo verificado */}
           <div className="flex items-center gap-2 flex-1 justify-center">
-            <h1 className="text-sm font-bold font-roboto-bold text-gray-900">{userName}</h1>
+            <h1 className="text-sm font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">{userName}</h1>
             {profile?.role === 'admin' && (
               <Image
                 src="/simb-king-blue-01.png"
@@ -95,15 +96,18 @@ export default async function HomePage() {
               />
             )}
           </div>
-          {/* Botão de logout */}
-          <form action={logout} className="ml-auto">
-            <button
-              type="submit"
-              className="text-sm text-gray-600 hover:text-gray-900 font-medium px-2 py-1"
-            >
-              Sair
-            </button>
-          </form>
+          {/* Botão de tema e logout */}
+          <div className="flex items-center gap-2 ml-auto">
+            <ThemeToggle />
+            <form action={logout}>
+              <button
+                type="submit"
+                className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium px-2 py-1 transition-colors"
+              >
+                Sair
+              </button>
+            </form>
+          </div>
         </div>
       </header>
 
@@ -132,16 +136,16 @@ export default async function HomePage() {
           {/* Estatísticas à direita da imagem */}
           <div className="flex items-center gap-6 sm:gap-8 flex-1">
             <div className="text-center">
-              <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900">
+              <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">
                 {abbreviateNumber(totalRevenue, true)}
               </div>
-              <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">Faturado</div>
+              <div className="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400 mt-0.5 transition-colors">Faturado</div>
             </div>
             <div className="text-center">
-              <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900">
+              <div className="text-sm sm:text-base font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">
                 {abbreviateNumber(totalUnitsSold, false)}
               </div>
-              <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">Unidades Vendidas</div>
+              <div className="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400 mt-0.5 transition-colors">Unidades Vendidas</div>
             </div>
           </div>
         </div>
@@ -151,19 +155,19 @@ export default async function HomePage() {
 
         {/* Nome e tipo de usuário */}
         <div className="mb-2">
-          <h2 className="text-sm font-bold font-roboto-bold text-gray-900 mb-1">{userName}</h2>
-          <p className="text-xs text-gray-600">{userType}</p>
+          <h2 className="text-sm font-bold font-roboto-bold text-gray-900 dark:text-white mb-1 transition-colors">{userName}</h2>
+          <p className="text-xs text-gray-600 dark:text-gray-400 transition-colors">{userType}</p>
         </div>
 
         {/* Bio */}
         <div className="mb-4">
-          <p className="text-sm text-gray-900 whitespace-pre-wrap">{userBio}</p>
+          <p className="text-sm text-gray-900 dark:text-white whitespace-pre-wrap transition-colors">{userBio}</p>
         </div>
 
         {/* Botões */}
         <div className="flex gap-2 mb-4">
           <EnablePush />
-          <button className="flex-1 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 hover:bg-gray-50 transition">
+          <button className="flex-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
             Chat Comunidade
           </button>
         </div>
@@ -189,8 +193,8 @@ export default async function HomePage() {
           return (
             <div key={area.id} className="mb-8">
               <div className="mb-4">
-                <h2 className="text-xl font-bold font-roboto-bold text-gray-900">{area.title}</h2>
-                <p className="text-sm text-gray-600">{area.description}</p>
+                <h2 className="text-xl font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">{area.title}</h2>
+                <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors">{area.description}</p>
               </div>
 
               {/* Modules Carousel */}

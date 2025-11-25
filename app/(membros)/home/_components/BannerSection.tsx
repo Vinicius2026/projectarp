@@ -29,7 +29,7 @@ export default function BannerSection() {
 
       {/* Título */}
       <div className="mb-3">
-        <h2 className="text-xl sm:text-2xl font-bold font-roboto-bold text-gray-900">
+        <h2 className="text-xl sm:text-2xl font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">
           Super Marcas Virais
         </h2>
       </div>
@@ -61,8 +61,8 @@ export default function BannerSection() {
                     />
                   </Link>
                 ) : (
-                  <div className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition">
-                    <span className="text-gray-900 font-bold text-2xl sm:text-3xl font-roboto-bold">
+                  <div className="w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition-colors">
+                    <span className="text-gray-900 dark:text-white font-bold text-2xl sm:text-3xl font-roboto-bold transition-colors">
                       {number}
                     </span>
                   </div>

@@ -36,7 +36,7 @@ export default function QuickActions() {
                 />
               </div>
               {/* Título abaixo */}
-              <span className="text-[10px] sm:text-xs text-gray-700 font-medium text-center max-w-[60px]">
+              <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300 font-medium text-center max-w-[60px] transition-colors">
                 {action.title}
               </span>
             </div>

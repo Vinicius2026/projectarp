@@ -42,10 +42,10 @@ export default function SideMenu() {
       {/* Botão hambúrguer */}
       <button
         onClick={() => setOpen(true)}
-        className="p-2 hover:bg-gray-100 rounded-lg transition"
+        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
         aria-label="Abrir menu"
       >
-        <Menu className="w-6 h-6 text-gray-900" />
+        <Menu className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
       </button>
 
       {/* Overlay */}
@@ -56,19 +56,19 @@ export default function SideMenu() {
       {/* Menu lateral */}
       <div
         ref={menuRef}
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-[60] transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-dark shadow-xl z-[60] transform transition-all duration-300 ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Header do menu */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
-          <h2 className="text-lg font-bold font-roboto-bold text-gray-900">Menu</h2>
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 transition-colors">
+          <h2 className="text-lg font-bold font-roboto-bold text-gray-900 dark:text-white transition-colors">Menu</h2>
           <button
             onClick={() => setOpen(false)}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
             aria-label="Fechar menu"
           >
-            <X className="w-6 h-6 text-gray-900" />
+            <X className="w-6 h-6 text-gray-900 dark:text-white transition-colors" />
           </button>
         </div>
 
@@ -83,7 +83,7 @@ export default function SideMenu() {
               return (
                 <div
                   key={item.label}
-                  className="w-full px-4 py-3 rounded-lg text-gray-400 cursor-not-allowed"
+                  className="w-full px-4 py-3 rounded-lg text-gray-400 dark:text-gray-500 cursor-not-allowed transition-colors"
                 >
                   {item.label}
                 </div>
@@ -98,7 +98,7 @@ export default function SideMenu() {
                     alert(`${item.label} - Em breve!`)
                     setOpen(false)
                   }}
-                  className="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition text-gray-700"
+                  className="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
                 >
                   {item.label}
                 </button>
@@ -110,10 +110,10 @@ export default function SideMenu() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`block px-4 py-3 rounded-lg transition ${
+                className={`block px-4 py-3 rounded-lg transition-colors ${
                   isActive
-                    ? 'bg-blue-50 text-blue-600 font-medium'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 {item.label}
