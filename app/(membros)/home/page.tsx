@@ -33,7 +33,16 @@ export default async function HomePage() {
   const { data: modules } = await supabase
     .from('modules')
     .select('*')
-    .order('id', { ascending: true })
+  
+  // Ordenar módulos por área e depois por order (fazer no código pois Supabase não suporta múltiplos order)
+  const sortedModules = modules?.sort((a, b) => {
+    if (a.area_id !== b.area_id) {
+      return (a.area_id || 0) - (b.area_id || 0)
+    }
+    const orderA = a.order || 999
+    const orderB = b.order || 999
+    return orderA - orderB
+  })
 
   // Dados mockados (valores fixos como solicitado)
   const totalRevenue = 1402294.39
@@ -174,7 +183,8 @@ export default async function HomePage() {
       {/* Áreas */}
       <div className="px-4 pb-6">
         {areas && areas.map((area) => {
-          const areaModules = modules?.filter((m) => m.area_id === area.id) || []
+          // Filtrar módulos da área (já estão ordenados)
+          const areaModules = sortedModules?.filter((m) => m.area_id === area.id) || []
           
           return (
             <div key={area.id} className="mb-8">

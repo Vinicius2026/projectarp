@@ -12,6 +12,7 @@ type Module = {
   area_id: number | null
   plan_access: string | null
   thumbnail_url: string | null
+  order: number | null
 }
 
 export default function EditModuleButtons({
@@ -29,6 +30,7 @@ export default function EditModuleButtons({
     gratuito: (module.plan_access || '').includes('Gratuito'),
     premium: (module.plan_access || '').includes('Premium'),
   }))
+  const [order, setOrder] = useState<string>((module.order || 1).toString())
   const [confirmOpen, setConfirmOpen] = useState(false)
 
   async function handleUpload(file: File | null) {
@@ -47,7 +49,10 @@ export default function EditModuleButtons({
     <>
       <button
         title="Editar módulo"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setOrder((module.order || 1).toString())
+          setOpen(true)
+        }}
         className="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
       >
         ✎
@@ -80,6 +85,11 @@ export default function EditModuleButtons({
                 formData.set('plan_access', selectedPlans || 'Gratuito')
                 if (thumbnailUrl) {
                   formData.set('thumbnail_url', thumbnailUrl)
+                }
+                // Adicionar ordem ao formData
+                const orderValue = parseInt(order) || 1
+                if (orderValue >= 1 && orderValue <= 10) {
+                  formData.set('order', orderValue.toString())
                 }
                 startTransition(async () => {
                   const res = await updateModule(module.id, formData)
@@ -128,6 +138,30 @@ export default function EditModuleButtons({
                   </div>
                   <input type="hidden" name="plan_access" value="" />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm text-gray-700 mb-1">
+                  Ordem de Exibição <span className="text-gray-500">(1-10)</span>
+                </label>
+                <input
+                  type="number"
+                  name="order"
+                  min="1"
+                  max="10"
+                  value={order}
+                  onChange={(e) => {
+                    const value = e.target.value
+                    if (value === '' || (parseInt(value) >= 1 && parseInt(value) <= 10)) {
+                      setOrder(value)
+                    }
+                  }}
+                  className="w-full border rounded-md px-3 py-2"
+                  placeholder="1"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Posição que este módulo aparecerá na área selecionada (1 = primeiro, 10 = último)
+                </p>
               </div>
 
               <div>

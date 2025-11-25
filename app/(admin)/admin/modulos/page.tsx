@@ -5,6 +5,7 @@ import CreateAreaButton from './_components/CreateAreaButton'
 import CreateModuleButton from './_components/CreateModuleButton'
 import EditAreaButton from './_components/EditAreaButton'
 import EditModuleButtons from './_components/EditModuleButtons'
+import ModuleOrderInput from './_components/ModuleOrderInput'
 
 export default async function ModulosPage() {
   const supabase = await createClient()
@@ -19,7 +20,16 @@ export default async function ModulosPage() {
   const { data: modules } = await supabase
     .from('modules')
     .select('*, areas(title)')
-    .order('id', { ascending: false })
+  
+  // Ordenar módulos por área e depois por order (fazer no código pois Supabase não suporta múltiplos order)
+  const sortedModules = modules?.sort((a, b) => {
+    if (a.area_id !== b.area_id) {
+      return (a.area_id || 0) - (b.area_id || 0)
+    }
+    const orderA = a.order || 999
+    const orderB = b.order || 999
+    return orderA - orderB
+  })
 
   return (
     <div className="p-8">
@@ -139,92 +149,119 @@ export default async function ModulosPage() {
           </div>
         </div>
 
-        {/* Modules Grid */}
+        {/* Modules Grid - Agrupado por Área */}
         <div className="p-6">
           <p className="text-sm text-gray-600 mb-6">
-            {modules?.length || 0} módulos encontrados
+            {sortedModules?.length || 0} módulos encontrados
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {modules && modules.length > 0 ? (
-              modules.map((module) => (
-                <div key={module.id} className="border rounded-lg overflow-hidden hover:shadow-lg transition">
-                  {/* Thumbnail */}
-                  <div className="aspect-[9/16] bg-gradient-to-br from-pink-400 to-purple-500 relative overflow-hidden">
-                    {module.thumbnail_url ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img 
-                        src={module.thumbnail_url} 
-                        alt={module.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        draggable={false}
-                      />
+          {/* Agrupar módulos por área */}
+          {areas && areas.length > 0 ? (
+            areas.map((area) => {
+              const areaModules = sortedModules?.filter((m) => m.area_id === area.id) || []
+              const maxOrder = Math.max(...areaModules.map(m => m.order || 0), 0)
+
+              return (
+                <div key={area.id} className="mb-8">
+                  <div className="mb-4 pb-2 border-b border-gray-200">
+                    <h3 className="text-lg font-bold text-gray-900">{area.title}</h3>
+                    <p className="text-sm text-gray-600">{areaModules.length} módulo(s)</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {areaModules.length > 0 ? (
+                      areaModules.map((module) => (
+                        <div key={module.id} className="border rounded-lg overflow-hidden hover:shadow-lg transition">
+                          {/* Thumbnail */}
+                          <div className="aspect-[9/16] bg-gradient-to-br from-pink-400 to-purple-500 relative overflow-hidden">
+                            {module.thumbnail_url ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img 
+                                src={module.thumbnail_url} 
+                                alt={module.title}
+                                className="absolute inset-0 w-full h-full object-cover"
+                                draggable={false}
+                              />
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
+                                #{module.id}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Content */}
+                          <div className="p-4">
+                            <h3 className="font-bold text-lg text-gray-900 mb-2">
+                              {module.title}
+                            </h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                              {module.description}
+                            </p>
+
+                            {/* Area Badge e Ordem */}
+                            <div className="flex items-center justify-between mb-4">
+                              <span className="px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                                {module.areas?.title || 'Sem área'}
+                              </span>
+                              <ModuleOrderInput 
+                                moduleId={module.id} 
+                                currentOrder={module.order}
+                                areaId={area.id}
+                                maxOrder={maxOrder}
+                              />
+                            </div>
+
+                            {/* Plans */}
+                            <div className="mb-4">
+                              <p className="text-xs text-gray-500 uppercase mb-2">Planos disponíveis</p>
+                              <div className="flex gap-2">
+                                {(module.plan_access || 'Gratuito')
+                                  .split(',')
+                                  .map((p: string) => (
+                                    <span key={p} className="px-2 py-1 text-xs bg-gray-100 rounded">
+                                      {p.trim()}
+                                    </span>
+                                  ))}
+                              </div>
+                            </div>
+
+                            {/* Actions */}
+                            <div className="flex gap-2">
+                              <Link 
+                                href={`/admin/modulos/${module.id}`}
+                                className="flex-1 px-4 py-2 bg-blue-600 text-white text-sm text-center rounded-lg hover:bg-blue-700"
+                              >
+                                Acessar aulas
+                              </Link>
+                              <EditModuleButtons module={module} areas={areas || []} />
+                            </div>
+
+                            {/* Pagination info */}
+                            <div className="flex items-center justify-between mt-4 text-xs text-gray-500">
+                              <span>2/40</span>
+                              <div className="flex gap-1">
+                                <button className="w-6 h-6 flex items-center justify-center">←</button>
+                                <button className="w-6 h-6 flex items-center justify-center">→</button>
+                              </div>
+                              <span>5/40</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                        #{module.id}
+                      <div className="col-span-3 py-8 text-center text-gray-500 text-sm">
+                        Nenhum módulo nesta área
                       </div>
                     )}
                   </div>
-
-                  {/* Content */}
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      {module.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-4">
-                      {module.description}
-                    </p>
-
-                    {/* Area Badge */}
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-                        {module.areas?.title || 'Sem área'}
-                      </span>
-                    </div>
-
-                    {/* Plans */}
-                    <div className="mb-4">
-                      <p className="text-xs text-gray-500 uppercase mb-2">Planos disponíveis</p>
-                      <div className="flex gap-2">
-                        {(module.plan_access || 'Gratuito')
-                          .split(',')
-                          .map((p: string) => (
-                            <span key={p} className="px-2 py-1 text-xs bg-gray-100 rounded">
-                              {p.trim()}
-                            </span>
-                          ))}
-                      </div>
-                    </div>
-
-                    {/* Actions */}
-                    <div className="flex gap-2">
-                      <Link 
-                        href={`/admin/modulos/${module.id}`}
-                        className="flex-1 px-4 py-2 bg-blue-600 text-white text-sm text-center rounded-lg hover:bg-blue-700"
-                      >
-                        Acessar aulas
-                      </Link>
-                      <EditModuleButtons module={module} areas={areas || []} />
-                    </div>
-
-                    {/* Pagination info */}
-                    <div className="flex items-center justify-between mt-4 text-xs text-gray-500">
-                      <span>2/40</span>
-                      <div className="flex gap-1">
-                        <button className="w-6 h-6 flex items-center justify-center">←</button>
-                        <button className="w-6 h-6 flex items-center justify-center">→</button>
-                      </div>
-                      <span>5/40</span>
-                    </div>
-                  </div>
                 </div>
-              ))
-            ) : (
-              <div className="col-span-3 py-12 text-center text-gray-500">
-                Nenhum módulo encontrado
-              </div>
-            )}
-          </div>
+              )
+            })
+          ) : (
+            <div className="py-12 text-center text-gray-500">
+              Nenhum módulo encontrado
+            </div>
+          )}
         </div>
       </div>
     </div>

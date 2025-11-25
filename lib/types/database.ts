@@ -23,6 +23,7 @@ export type Module = {
   thumbnail_url: string | null
   area_id: number | null
   plan_access: string
+  order: number | null
 }
 
 export type Lesson = {

@@ -37,3 +37,8 @@ next-env.d.ts
 
 # ignore markdown docs from repository
 *.md
+
+# backups do banco de dados (contém dados sensíveis)
+/backups/
+*.sql.backup
+backup_*.sql
