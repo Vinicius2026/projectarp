@@ -101,7 +101,7 @@ export default function ProdutoPage({
       <ProductGradient color={produto.corPrimaria} />
 
       {/* Header */}
-      <header className="bg-white/80 dark:bg-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 p-4 sticky top-0 z-10 transition-colors">
+      <header className="bg-white dark:bg-[#0b1014] border-b border-gray-200 dark:border-gray-700 p-4 sticky top-0 z-10 transition-colors">
         <div className="flex items-center justify-between max-w-2xl mx-auto">
           <Link 
             href="/home" 
